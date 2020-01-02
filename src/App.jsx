@@ -5,12 +5,13 @@ import UploadThree from './components/UploadPage3';
 
 import UploadOne from './components/UploadPage1'
 
+
+import ProfilePage from './components/ProfilePage'
+
 function App() {
   return (
     <div className="App" role="main">
-      <UploadOne />
-      <UploadTwo />
-      <UploadThree />
+      <ProfilePage />
     </div>
   );
 }
