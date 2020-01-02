@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 
 
-const Login = () => {
+const Login = (props) => {
   const [user, setUser] = useState({
     email: '',
     password: '',
@@ -20,6 +20,8 @@ const Login = () => {
     axios.post('https://curi0.herokuapp.com/auth/login', user)
       .then((response) => {
         localStorage.setItem('token', response.data.token);
+        // eslint-disable-next-line react/prop-types
+        props.history.push('/');
       })
       .catch((err) => console.log(err.response));
   };

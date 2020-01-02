@@ -5,7 +5,7 @@ import './App.css';
 
 function App() {
   return (
-    <Route to="/login" component={Login} />
+    <Route exact path="/login" component={Login} />
   );
 }
 
