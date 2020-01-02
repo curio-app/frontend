@@ -2,8 +2,6 @@ import React from 'react'
 import ProfilePageCard from './ProfilePageCard'
 import {dummydata} from './dummydata.jsx'
 
-import UploadPage1 from './UploadPage1';
-
 const ProfilePage = (props) => {
 
 console.log(dummydata)

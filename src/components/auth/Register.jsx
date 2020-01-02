@@ -1,12 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-<<<<<<< HEAD
-const Register = () => {
-  return <div>Register</div>;
-};
-
-=======
 const token = 'response.data.token';
 
 const Register = props => {
@@ -66,5 +60,4 @@ const Register = props => {
   );
 };
 
->>>>>>> bbf840f57c5f6768ec482147ba3b58c5b9c21a3a
 export default Register;
