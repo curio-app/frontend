@@ -1,12 +1,16 @@
 import React from 'react';
 
-const ProfilePageCard = () => {
+const ProfilePageCard = (props) => {
+  console.log(props.data)
+  
+
+
   return (
     <div>
-      <img src="https://via.placeholder.com/150" alt="collectible"></img>
-      <h3>Name of Collectible</h3>
+      <img src={props.data.img_url} alt="collectible"></img>
+      <h3>{props.data.item_name}</h3>
       <p>
-        Liked <span>500</span> times
+      Liked <span>{props.data.likes}</span> times
       </p>
       <button>Edit</button>
     </div>
