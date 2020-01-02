@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-const token = '324234234hnhkjnkjbnkj345bhiu34bh5kb23kj';
+const token = 'response.data.token';
 
-const Register = () => {
+const Register = props => {
   const [user, setUser] = useState({
     email: '',
     password: '',
@@ -21,6 +21,7 @@ const Register = () => {
         .post('https://curi0.herokuapp.com/auth/register', user)
         .then(response => {
           localStorage.setItem('token', token);
+          props.history.push('/UserPage');
         })
         .catch(err => console.log(err));
       console.log('SUCCESS!');

@@ -5,7 +5,7 @@ import { Route } from 'react-router-dom';
 import Register from './Components/Auth/Register';
 
 function App() {
-  return <Route to="/register" component={Register} />;
+  return <Route exact path="/register" component={Register} />;
 }
 
 export default App;
