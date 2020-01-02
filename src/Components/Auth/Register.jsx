@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 
 const token = '324234234hnhkjnkjbnkj345bhiu34bh5kb23kj';
 
 const Register = () => {
   const [user, setUser] = useState({
-    username: '',
+    email: '',
     password: '',
     checkPassword: '',
   });
@@ -16,7 +17,12 @@ const Register = () => {
   const handleSubmit = e => {
     e.preventDefault();
     if (user.password === user.checkPassword) {
-      localStorage.setItem('token', token);
+      axios
+        .post('https://curi0.herokuapp.com/auth/register', user)
+        .then(response => {
+          localStorage.setItem('token', token);
+        })
+        .catch(err => console.log(err));
       console.log('SUCCESS!');
     }
   };
@@ -26,10 +32,11 @@ const Register = () => {
       <form onSubmit={handleSubmit}>
         <input
           type="text"
-          name="username"
-          value={user.username}
+          name="email"
+          value={user.email}
           onChange={handleChanges}
-          placeholder="Username"
+          placeholder="Email"
+          required
         />
         <input
           type="password"
@@ -37,12 +44,14 @@ const Register = () => {
           value={user.password}
           onChange={handleChanges}
           placeholder="Password"
+          required
         />
         <input
           type="password"
           value={user.checkPassword}
           onChange={handleChanges}
           placeholder="Verify Password"
+          required
         />
         <button type="submit">Register</button>
       </form>
