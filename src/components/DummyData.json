@@ -12,7 +12,7 @@
     {
       "_id": "5e0e302c206f1bde33f12991",
       "picture": "https://assets.rebelmouse.io/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpbWFnZSI6Imh0dHBzOi8vYXNzZXRzLnJibC5tcy8yMjE5MjQ4NC9vcmlnaW4uanBnIiwiZXhwaXJlc19hdCI6MTU3ODMzMDkxM30.pgJceSXL2oYni1qpgKNRMXdexdI9RMCygu0jcqThpoc/img.jpg?width=980",
-      "title": "This is a title",
+      "title": "This is a slightly longer title",
       "likes": 317263,
       "name": {
         "first": "Sadie",
@@ -22,7 +22,7 @@
     {
       "_id": "5e0e302c159f3cc58b8bb3fe",
       "picture": "https://icatcare.org/app/uploads/2018/07/How-to-tell-the-sex-of-a-kitten.png",
-      "title": "This is a title",
+      "title": "This is a really really really really overly long title",
       "likes": 218848,
       "name": {
         "first": "Holland",
@@ -32,7 +32,7 @@
     {
       "_id": "5e0e302cb4a63743198567df",
       "picture": "https://i.ytimg.com/vi/jANE8lpoj2c/maxresdefault.jpg",
-      "title": "This is a title",
+      "title": "This title is so long that the user should really work on being more concise",
       "likes": 273700,
       "name": {
         "first": "Marks",
