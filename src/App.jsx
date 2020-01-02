@@ -1,11 +1,13 @@
 import React from 'react';
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
+import UploadTwo from './components/UploadPage2';
 
 function App() {
   return (
     <div className="App" role="main">
-      <header className="App-header">
+      <UploadTwo />
+      {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="react logo" />
         <p>
           Edit
@@ -20,7 +22,7 @@ function App() {
         >
           Learn React
         </a>
-      </header>
+      </header> */}
     </div>
   );
 }
