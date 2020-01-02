@@ -20,7 +20,7 @@ const Register = props => {
       axios
         .post('https://curi0.herokuapp.com/auth/register', user)
         .then(response => {
-          localStorage.setItem('token', token);
+          localStorage.setItem('token', response.data.token);
           props.history.push('/UserPage');
         })
         .catch(err => console.log(err));
