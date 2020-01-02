@@ -4,8 +4,8 @@ import { Route, Redirect } from 'react-router-dom';
 const PrivateRoutes = ({ component: Component, ...rest }) => (
   <Route
     {...rest}
-    render={props =>
-      localStorage.getItem('token') ? (
+    render={props => {
+      return localStorage.getItem('token') ? (
         <Component {...props} />
       ) : (
         <Redirect
@@ -14,8 +14,8 @@ const PrivateRoutes = ({ component: Component, ...rest }) => (
             state: { from: props.location },
           }}
         />
-      )
-    }
+      );
+    }}
   />
 );
 
