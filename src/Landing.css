@@ -1,0 +1,43 @@
+.landing-page-card {
+    width: 195px;
+    height: 195px;
+    overflow: hidden;
+    transition: 0.5s;
+    position: relative;
+}
+
+.landing-page-card-text {
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: 0.5s;
+    height: 195px;
+    width: 195px;
+}
+
+.landing-page-card-text:hover {
+    opacity: 0.8;
+    transition: 0.5s;
+    color: white;
+    background-color: black;
+}
+
+
+.landing-page-card img {
+    max-height: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+.landing-page-wrapper {
+    max-width: 800px;
+    width: 70%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
