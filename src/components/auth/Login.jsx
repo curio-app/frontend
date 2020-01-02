@@ -9,12 +9,26 @@ const Login = () => {
         password: ''
     })
 
+    handleChanges = e => {
+        setUser({
+            [e.target.name]: e.target.value
+        })
+    }
+
+    handleSubmit = e => {
+        e.preventDefault();
+        localStorage.setItem('token', token);
+        // axios call 
+    }
+
     return (
         <div className='login-form'>
             <form onSubmit={handleSubmit}>
                 <label htmlFor='username' />
                 <input type='text' value={user.username} onChange={handleChanges} name='username' />
                 <label htmlFor='password' />
+                <input type='password' value={user.password} onChange={handleChanges} name='password' />
+                <button>Register</button>
             </form>
         </div>
     )
