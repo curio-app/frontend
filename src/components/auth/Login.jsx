@@ -1,37 +1,49 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-
-const Login = () => {
+const Login = props => {
   const [user, setUser] = useState({
     email: '',
     password: '',
   });
 
-  const handleChanges = (e) => {
+  const handleChanges = e => {
     setUser({
       ...user,
       [e.target.name]: e.target.value,
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = e => {
     e.preventDefault();
-    axios.post('https://curi0.herokuapp.com/auth/login', user)
-      .then((response) => {
+    axios
+      .post('https://curi0.herokuapp.com/auth/login', user)
+      .then(response => {
         localStorage.setItem('token', response.data.token);
+        // eslint-disable-next-line react/prop-types
+        props.history.push('/');
       })
-      .catch((err) => console.log(err.response));
+      .catch(err => console.log(err.response));
   };
 
   return (
     <div className="login-form">
       <form onSubmit={handleSubmit}>
         <label htmlFor="email">
-          <input type="email" value={user.email} onChange={handleChanges} name="email" />
+          <input
+            type="email"
+            value={user.email}
+            onChange={handleChanges}
+            name="email"
+          />
         </label>
         <label htmlFor="password">
-          <input type="password" value={user.password} onChange={handleChanges} name="password" />
+          <input
+            type="password"
+            value={user.password}
+            onChange={handleChanges}
+            name="password"
+          />
         </label>
         <button type="submit">Login</button>
       </form>
