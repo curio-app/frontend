@@ -10,7 +10,6 @@ const UploadOne = () => {
                 <div classNAme="upload-btn"><button>Upload Image</button></div>
             </div>
             
-            
                 
             <div className="form">
                 <input name="item_name" placeholder="Name of Collectible"/> 
