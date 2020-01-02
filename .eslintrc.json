@@ -16,5 +16,8 @@
     "sourceType": "module"
   },
   "plugins": ["react"],
-  "rules": {}
+  "rules": {
+    "linebreak-style": "off",
+    "no-console": "off"
+  }
 }

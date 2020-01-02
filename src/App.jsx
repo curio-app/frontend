@@ -1,10 +1,11 @@
 import React from 'react';
-import logo from './logo.svg';
+import { Route } from 'react-router-dom';
+import Login from './components/auth/Login';
 import './App.css';
 
 function App() {
   return (
-    <Route to='/login' component={Login} />
+    <Route to="/login" component={Login} />
   );
 }
 
