@@ -3321,6 +3321,9 @@ debug@2.6.9, debug@^2.2.0, debug@^2.3.3, debug@^2.6.0, debug@^2.6.9:
     ms "2.0.0"
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> bfde2c72ce05816f895f9e9d5b96772f381507eb
 debug@=3.1.0:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/debug/-/debug-3.1.0.tgz#5bb5a0672628b64149566ba16819e61518c67261"
@@ -3328,10 +3331,14 @@ debug@=3.1.0:
   dependencies:
     ms "2.0.0"
 
+<<<<<<< HEAD
 debug@^3.0.0, debug@^3.1.1, debug@^3.2.5, debug@^3.2.6:
 =======
 debug@^3.0.0, debug@^3.1.1, debug@^3.2.5:
 >>>>>>> 8809f71cd9ff7981d48e68acb5393807b7afba62
+=======
+debug@^3.0.0, debug@^3.1.1, debug@^3.2.5:
+>>>>>>> bfde2c72ce05816f895f9e9d5b96772f381507eb
   version "3.2.6"
   resolved "https://registry.yarnpkg.com/debug/-/debug-3.2.6.tgz#e83d17de16d8a7efb7717edbe5fb10135eee629b"
   integrity sha512-mel+jf7nrtEl5Pn1Qx46zARXKDpBbvzezse7p7LqINmdoIk8PYP5SySaxEmYv6TZ0JyEKA1hsCId6DIhgITtWQ==
@@ -8488,10 +8495,14 @@ react-router-dom@^5.1.2:
     tiny-warning "^1.0.0"
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 react-router@5.1.2, react-router@^5.1.2:
 =======
 react-router@5.1.2:
 >>>>>>> 8809f71cd9ff7981d48e68acb5393807b7afba62
+=======
+react-router@5.1.2, react-router@^5.1.2:
+>>>>>>> bfde2c72ce05816f895f9e9d5b96772f381507eb
   version "5.1.2"
   resolved "https://registry.yarnpkg.com/react-router/-/react-router-5.1.2.tgz#6ea51d789cb36a6be1ba5f7c0d48dd9e817d3418"
   integrity sha512-yjEuMFy1ONK246B+rsa0cUam5OeAQ8pyclRDgpxuSCrAlJ1qN9uZ5IgyKC7gQg0w8OM50NXHEegPh/ks9YuR2A==

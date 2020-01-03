@@ -1,6 +1,11 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 
-const UploadTwo = () => {
+const UploadTwo = (props) => {
+
+  useEffect(()=>{
+    props.setPageBars({...props.pageBars, isPageTwo: true})
+}, [])
+
   return (
     <div>
       <form>
@@ -15,6 +20,7 @@ const UploadTwo = () => {
         <button>No</button>
         <button>Continue</button>
       </form>
+
     </div>
   );
 };
