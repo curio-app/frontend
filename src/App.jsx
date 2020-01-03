@@ -20,8 +20,8 @@ function App() {
         <Switch>
           <Route exact path="/" component={LandingPage} />
           <Route exact path="/register" component={Register} />
-          <Route to="/login" component={Login} />
-          <Route to="/profile" component={ProfilePage} />
+          <Route path="/login" component={Login} />
+          <Route path="/profile" component={ProfilePage} />
           <Route path="/upload-page" component={UploadPage} />
         </Switch>
       </main>
