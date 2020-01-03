@@ -7,7 +7,7 @@ import './style.css';
 const Footer = () => {
   return (
     <footer>
-      <footer className="wrapper">
+      <footer>
         <section className="left">
           <h2>curio</h2>
           <div className="social" role="navigation">
