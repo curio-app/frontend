@@ -6,9 +6,17 @@ import './SingleItem.css';
 import axios from 'axios';
 
 const SingleItemPage = (props) => {
+
+  const [likeIt, setLikeIt] = useState(false)
+
+  const likeToggle = e => {
+    setLikeIt(!likeIt)
+  }
+
   const [itemData, setItemData] = useState({
     name: "",
     username: "",
+    imageUrl:"",
     story: "",
     description: "",
     likes: [],
@@ -43,25 +51,31 @@ const SingleItemPage = (props) => {
               </span>{' '}
               times
             </p>
-            <button className="button like">
-              Like{' '}
-              <span>
-                <i class="far fa-heart"></i>
-              </span>
-            </button>
-            <button className="button liked">
+            {
+              likeIt ? <button className="button liked" onClick={likeToggle}>
               Liked{' '}
               <span>
-                // <i class="fas fa-heart"></i>
+                <i class="fas fa-heart"></i>
               </span>
             </button>
-            <h3>Looking to purchase?</h3>
+            : 
+            <button className="button like" onClick={likeToggle}>
+            Like{' '}
+            <span>
+              <i class="far fa-heart"></i>
+            </span>
+          </button>
+
+            }
+            
+            
+            {/* <h3>Looking to purchase?</h3>
             <div className="purchase-icons">
               <i class="fab fa-amazon"></i>
               <i class="fab fa-ebay"></i>
               <i class="fab fa-etsy"></i>
               <i class="far fa-envelope"></i>
-            </div>
+            </div> */}
           </div>
         </section>
 
