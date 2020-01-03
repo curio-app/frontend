@@ -28,7 +28,7 @@ const handleSubmit = e => {
 
   return (
     <div>
-      <form>
+      <form onSubmit={handleSubmit}>
         <h3>Description</h3>
         <input
           type="text"
@@ -40,7 +40,7 @@ const handleSubmit = e => {
         <h3>Tags</h3>
         <p>Keywords to help other users find your item while searching</p>
         <button>Add Tag +</button>
-        <button onClick={handleSubmit}>Finish</button>
+        <button type='submit'>Finish</button>
       </form>
 
     </div>
