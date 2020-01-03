@@ -23,19 +23,10 @@ const SingleItemPage = props => {
   const [liked, setLiked] = useState(false);
 
   useEffect(() => {
-    const { username } = JSON.parse(localStorage.getItem('user'));
     axios
       .get(`https://curi0.herokuapp.com/collectibles/${props.match.params.id}`)
       .then(res => {
         setItemData(res.data);
-        if (username) {
-          const likeCheck = res.data.likes.find(
-            user => user.username === username
-          );
-          if (likeCheck) {
-            setLiked(true);
-          }
-        }
       });
   }, [props.match.params.id, setItemData]);
 
