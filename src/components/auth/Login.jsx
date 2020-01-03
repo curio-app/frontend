@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import axios from 'axios';
 
-const Login = props => {
+const Login = ({ history }) => {
   const [user, setUser] = useState({
-    email: '',
+    username: '',
     password: '',
   });
 
@@ -20,35 +21,51 @@ const Login = props => {
       .post('https://curi0.herokuapp.com/auth/login', user)
       .then(response => {
         localStorage.setItem('token', response.data.token);
-        // eslint-disable-next-line react/prop-types
-        props.history.push('/');
+        history.push('/');
       })
       .catch(err => console.log(err.response));
+    setUser({
+      username: '',
+      password: '',
+    });
   };
 
   return (
-    <div className="login-form">
+    <div id="wrapper">
       <form onSubmit={handleSubmit}>
-        <label htmlFor="email">
+        <div className="username">
+          <h1>Login</h1>
           <input
-            type="email"
-            value={user.email}
+            className="input"
+            type="text"
+            value={user.username}
             onChange={handleChanges}
-            name="email"
+            name="username"
+            placeholder="&#xf007; Username"
           />
-        </label>
-        <label htmlFor="password">
+        </div>
+        <div className="password">
           <input
+            className="input"
             type="password"
             value={user.password}
             onChange={handleChanges}
             name="password"
+            placeholder="&#xf023; Password"
           />
-        </label>
-        <button type="submit">Login</button>
+        </div>
+        <button className="registerButton" type="submit">
+          Login
+        </button>
       </form>
     </div>
   );
+};
+
+Login.propTypes = {
+  history: PropTypes.shape({
+    push: PropTypes.func,
+  }).isRequired,
 };
 
 export default Login;

@@ -1,13 +1,11 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import axiosWithAuth from './axiosWithAuth';
 
-const token = 'response.data.token';
-
-const icon = <i class="fas fa-user-plus"></i>;
-
-const Register = props => {
+const Register = ({ history }) => {
   const [user, setUser] = useState({
     email: '',
+    username: '',
     password: '',
     checkPassword: '',
   });
@@ -18,28 +16,47 @@ const Register = props => {
     });
   };
   const handleSubmit = e => {
+    const userSend = {
+      username: user.username,
+      email: user.email,
+      password: user.password,
+    };
     e.preventDefault();
     if (user.password === user.checkPassword) {
       axiosWithAuth()
         .post('auth/register', user)
         .then(response => {
           localStorage.setItem('token', response.data.token);
-          props.history.push('/UserPage');
+          history.push('/UserPage');
         })
         .catch(err => console.log(err.response));
-      console.log('SUCCESS!');
+      setUser({
+        username: '',
+        email: '',
+        password: '',
+        checkPassword: '',
+      });
     }
   };
   return (
     <div id="wrapper">
       <h1>Register Here!</h1>
-      <i>
-        <i class="fas fa-user-plus"></i>
-      </i>
+      {/* <i>
+        <i className="fas fa-user-plus" />
+      </i> */}
       <form onSubmit={handleSubmit}>
         <input
           className="input"
           type="text"
+          name="username"
+          value={user.username}
+          onChange={handleChanges}
+          placeholder="&#xf007; Username"
+          required
+        />
+        <input
+          className="input"
+          type="email"
           name="email"
           value={user.email}
           onChange={handleChanges}
@@ -70,6 +87,12 @@ const Register = props => {
       </form>
     </div>
   );
+};
+
+Register.propTypes = {
+  history: PropTypes.shape({
+    push: PropTypes.func,
+  }).isRequired,
 };
 
 export default Register;
