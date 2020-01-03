@@ -5,7 +5,7 @@ import '../Nav.css';
 const Nav = () => {
   return (
     <header>
-      <Link to="/" class="baloo">
+      <Link to="/" className="baloo">
         curio
       </Link>
       <nav className="nav-link-wrapper">

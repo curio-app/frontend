@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 
 import './App.css';
 
@@ -12,9 +12,11 @@ function App() {
   return (
     <div className="App" role="main">
       <Nav />
-      <LandingPage />
-      <Route exact path="/register" component={Register} />
-      <Route to="/login" component={Login} />
+      <Switch>
+        <Route exact path="/" component={LandingPage} />
+        <Route exact path="/register" component={Register} />
+        <Route to="/login" component={Login} />
+      </Switch>
     </div>
   );
 }
