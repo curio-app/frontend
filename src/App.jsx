@@ -1,7 +1,9 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 
+
 import './App.css';
+import SingleItemPage from './components/SingleItemPage';
 
 import ProfilePage from './components/ProfilePage';
 import Nav from './components/Nav';
@@ -15,6 +17,7 @@ import EditItemPage from './components/EditItemPage';
 function App() {
   return (
     <div className="App" role="main">
+      <SingleItemPage />
       <main className="content">
         <Nav />
         <Switch>
