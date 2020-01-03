@@ -4,13 +4,13 @@ import { Route, Switch } from 'react-router-dom';
 import './App.css';
 
 import ProfilePage from './components/ProfilePage';
-
 import Nav from './components/Nav';
 import LandingPage from './components/LandingPage';
 import Login from './components/auth/Login';
 import Register from './components/auth/Register';
 import Footer from './components/Footer';
 import Upload from './components/Upload';
+import EditItemPage from './components/EditItemPage';
 
 function App() {
   return (
@@ -23,6 +23,7 @@ function App() {
           <Route path="/login" component={Login} />
           <Route path="/profile" component={ProfilePage} />
           <Route path="/upload-page" component={Upload} />
+          <Route path="/edit" component={EditItemPage} />
         </Switch>
       </main>
       <Footer />
