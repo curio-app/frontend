@@ -60,9 +60,19 @@ const Login = ({ history }) => {
             placeholder="Password"
           />
         </label>
-        <button className="registerButton" type="submit">
+        <div className="login-buttons">
+          <button className="registerButton" type="submit">
           Login
-        </button>
+          </button>
+          <p>
+            {' '}
+        or
+            {' '}
+            <button type="submit" onClick={() => history.push('/register')} className="registerButton">Register</button>
+            {' '}
+        a new account.
+          </p>
+        </div>
       </form>
     </main>
   );

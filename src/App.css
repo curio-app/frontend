@@ -164,7 +164,7 @@ body,
 .registerButton {
   cursor: pointer;
   margin: auto;
-  margin-top: 30px;
+  margin-top: 10px;
   background: #eb6a79;
   color: white;
   border: 3px solid #eb6a79;
@@ -215,4 +215,14 @@ div.App > main.content {
 
 .about-icons {
   display: flex;
+}
+
+.login-buttons {
+  display: flex;
+  justify-content: center;
+}
+
+.login-buttons button {
+  margin-left: 0;
+  margin-right: 0;
 }
