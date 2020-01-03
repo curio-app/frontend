@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { useHistory } from 'react-router-dom';
-
 import axiosWithAuth from './auth/axiosWithAuth';
 import ProfilePageCard from './ProfilePageCard';
 
@@ -14,6 +13,7 @@ const ProfilePage = ({ match }) => {
     id: 0,
     folders: [],
   });
+  const [collLength, setCollLength] = useState(0);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -28,11 +28,17 @@ const ProfilePage = ({ match }) => {
   const history = useHistory();
   return (
     <div>
+      {/* {console.log(profile.folders[0].collectibles.length)} */}
       <section className="overall-user-wrapper">
         <img src={profile.imageUrl} alt="" />
         <section className="user-info-wrapper">
           <h3>{profile.username}</h3>
-          <p>Total Collectibles: 50</p>
+          <p>
+            Total Collectibles:
+            {profile.folders[0] && profile.folders[0].collectibles && profile.folders[0].collectibles.length ?
+              profile.folders[0].collectibles.length :
+              0}
+          </p>
           <button
             type="button"
             className="add-collect-button"
