@@ -4,7 +4,7 @@ import axios from 'axios';
 
 const Login = ({ history }) => {
   const [user, setUser] = useState({
-    email: '',
+    username: '',
     password: '',
   });
 
@@ -24,28 +24,41 @@ const Login = ({ history }) => {
         history.push('/');
       })
       .catch(err => console.log(err.response));
+    setUser({
+      username: '',
+      password: '',
+    });
   };
 
   return (
-    <form onSubmit={handleSubmit} className="login-form">
-      <label htmlFor="email">
-        <input
-          type="email"
-          value={user.email}
-          onChange={handleChanges}
-          name="email"
-        />
-      </label>
-      <label htmlFor="password">
-        <input
-          type="password"
-          value={user.password}
-          onChange={handleChanges}
-          name="password"
-        />
-      </label>
-      <button type="submit">Login</button>
-    </form>
+    <div id="wrapper">
+      <form onSubmit={handleSubmit}>
+        <div className="username">
+          <h1>Login</h1>
+          <input
+            className="input"
+            type="text"
+            value={user.username}
+            onChange={handleChanges}
+            name="username"
+            placeholder="&#xf007; Username"
+          />
+        </div>
+        <div className="password">
+          <input
+            className="input"
+            type="password"
+            value={user.password}
+            onChange={handleChanges}
+            name="password"
+            placeholder="&#xf023; Password"
+          />
+        </div>
+        <button className="registerButton" type="submit">
+          Login
+        </button>
+      </form>
+    </div>
   );
 };
 
