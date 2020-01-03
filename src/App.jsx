@@ -10,7 +10,7 @@ import LandingPage from './components/LandingPage';
 import Login from './components/auth/Login';
 import Register from './components/auth/Register';
 import Footer from './components/Footer';
-import UploadPage from './components/UploadPage';
+import Upload from './components/Upload';
 
 function App() {
   return (
@@ -22,7 +22,7 @@ function App() {
           <Route exact path="/register" component={Register} />
           <Route path="/login" component={Login} />
           <Route path="/profile" component={ProfilePage} />
-          <Route path="/upload-page" component={UploadPage} />
+          <Route path="/upload-page" component={Upload} />
         </Switch>
       </main>
       <Footer />
