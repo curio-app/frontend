@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
+import axiosWithAuth from '../auth/axiosWithAuth';
 
 const UploadThree = ({
   setPageBars,
@@ -8,6 +9,8 @@ const UploadThree = ({
   tags,
   addTag,
   removeTag,
+  newCollectible,
+  history,
 }) => {
   useEffect(() => {
     setPageBars(prevState => ({ ...prevState, isPageThree: true }));
@@ -24,9 +27,19 @@ const UploadThree = ({
     setNewTag('');
   };
 
+  const handleSubmit = async e => {
+    e.preventDefault();
+    const { id: userId } = JSON.parse(localStorage.getItem('user'));
+    const { data } = await axiosWithAuth().post(
+      `/collectibles/${userId}`,
+      newCollectible
+    );
+    history.push(`/collectibles/${data.id}`);
+  };
+
   return (
     <main className="upload-page-3">
-      <form>
+      <form onSubmit={handleSubmit}>
         <h3>Description</h3>
         <textarea
           value={description}
@@ -37,14 +50,16 @@ const UploadThree = ({
         <div>
           <h3>Tags</h3>
           <p>Keywords to help other users find your item while searching</p>
-          <form onSubmit={handleAddTag}>
+          <section>
             <input
               value={newTag}
               onChange={handleTagChange}
               placeholder="Tag Name"
             />
-            <button type="submit">&#9547;</button>
-          </form>
+            <button type="button" onClick={handleAddTag}>
+              &#9547;
+            </button>
+          </section>
           <div>
             {tags.map(tag => (
               <div key={tag.id} role="listitem" className="tag">
@@ -70,10 +85,20 @@ UploadThree.propTypes = {
   handleChange: PropTypes.func.isRequired,
   description: PropTypes.string.isRequired,
   tags: PropTypes.arrayOf(
-    PropTypes.shape({ id: PropTypes.string, name: PropTypes.string })
+    PropTypes.shape({ id: PropTypes.number, name: PropTypes.string })
   ).isRequired,
   addTag: PropTypes.func.isRequired,
   removeTag: PropTypes.func.isRequired,
+  newCollectible: PropTypes.shape({
+    imageUrl: PropTypes.string,
+    name: PropTypes.string,
+    story: PropTypes.string,
+    sellable: PropTypes.bool,
+    description: PropTypes.string,
+    tags: PropTypes.arrayOf(
+      PropTypes.shape({ id: PropTypes.number, name: PropTypes.string })
+    ),
+  }).isRequired,
 };
 
 export default UploadThree;

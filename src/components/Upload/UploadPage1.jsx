@@ -8,7 +8,7 @@ const UploadOne = ({
   name,
   setImgUrl,
   history,
-  imgUrl,
+  imageUrl,
 }) => {
   const image = useRef(null);
   useEffect(() => {
@@ -17,12 +17,12 @@ const UploadOne = ({
 
   useEffect(() => {
     const loadImg = new Image();
-    loadImg.src = imgUrl;
+    loadImg.src = imageUrl;
     const ctx = image.current.getContext('2d');
     loadImg.onload = () => {
       ctx.drawImage(loadImg, 0, 0);
     };
-  }, [imgUrl]);
+  }, [imageUrl]);
 
   const handleUpload = async e => {
     const reader = new FileReader();
@@ -107,11 +107,6 @@ const UploadOne = ({
   );
 };
 
-UploadOne.defaultProps = {
-  imgUrl:
-    'https://res.cloudinary.com/curioapp/image/upload/v1578031657/defaultCollectible_muk40e.png',
-};
-
 UploadOne.propTypes = {
   setPageBars: PropTypes.func.isRequired,
   handleChange: PropTypes.func.isRequired,
@@ -120,7 +115,7 @@ UploadOne.propTypes = {
   history: PropTypes.shape({
     push: PropTypes.func,
   }).isRequired,
-  imgUrl: PropTypes.string,
+  imageUrl: PropTypes.string.isRequired,
 };
 
 export default UploadOne;

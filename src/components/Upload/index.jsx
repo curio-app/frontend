@@ -34,7 +34,7 @@ const UploadPage = ({ match }) => {
   const setImgUrl = url => {
     setNewCollectible({
       ...newCollectible,
-      imgUrl: url,
+      imageUrl: url,
     });
   };
 
@@ -76,7 +76,7 @@ const UploadPage = ({ match }) => {
             handleChange={handleChange}
             name={newCollectible.name}
             setImgUrl={setImgUrl}
-            imgUrl={newCollectible.imgUrl}
+            imageUrl={newCollectible.imageUrl}
           />
         )}
       />
@@ -104,6 +104,7 @@ const UploadPage = ({ match }) => {
             tags={newCollectible.tags}
             addTag={addTag}
             removeTag={removeTag}
+            newCollectible={newCollectible}
           />
         )}
       />
