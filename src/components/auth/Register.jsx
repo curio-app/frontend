@@ -38,7 +38,8 @@ const Register = ({ history }) => {
         .post('auth/register', user)
         .then(response => {
           localStorage.setItem('token', response.data.token);
-          history.push('/UserPage');
+          localStorage.setItem('user', JSON.stringify(response.data));
+          history.push('/upload-page/1');
         })
         .catch(err => console.log(err.response));
       setUser({

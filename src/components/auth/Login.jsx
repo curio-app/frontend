@@ -23,6 +23,7 @@ const Login = ({ history }) => {
       .post('https://curi0.herokuapp.com/auth/login', user)
       .then(response => {
         localStorage.setItem('token', response.data.token);
+        localStorage.setItem('user', JSON.stringify(response.data));
         history.push('/');
       })
       .catch(err => console.log(err.response));
