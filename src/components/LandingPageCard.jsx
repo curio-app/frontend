@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { PropTypes } from 'prop-types';
 
 const LandingPageCard = ({ card }) => {
-  console.log(card);
   return (
     <Link to={`/collectibles/${card.id}`}>
       <div className="landing-page-card" role="gridcell">
