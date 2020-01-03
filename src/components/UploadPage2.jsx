@@ -11,7 +11,7 @@ const UploadTwo = ({newCollectable, setCollectable, ...props}) => {
   }, [])
 
   const handleChange = e => {
-    console.log(newCollectable)
+    // console.log(newCollectable)
     setCollectable({
         ...newCollectable,
         [e.target.name]: e.target.value
@@ -37,8 +37,15 @@ const handleSubmit = e => {
         />
         <h4>Are you willing to sell this item?</h4>
         <p>Other Curio users may contact you to discuss a potential sale</p>
-        <button>Yes</button>
-        <button>No</button>
+        <button onClick={e => {
+          e.preventDefault();
+          setCollectable({...newCollectable, sellable: true})
+        }}>Yes</button>
+        <button onClick={e => {
+          e.preventDefault();
+          setCollectable({...newCollectable, sellable: false})
+          console.log(newCollectable)
+        }}>No</button>
         <button onClick={handleSubmit}>Continue</button>
       </form>
 

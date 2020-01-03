@@ -24,7 +24,7 @@ const UploadPage = ({ match }) => {
         isPageThree: false
     })
 
-    console.log(match)
+    // console.log(match)
     return (
         <div>
                 <Route 
