@@ -1,16 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 
 import './SingleItem.css';
 
-const SingleItemPage = props => {
-  const [likeIt, setLikeIt] = useState(false);
-
-  const likeToggle = e => {
-    setLikeIt(!likeIt);
-  };
-
+const SingleItemPage = ({ match }) => {
   const [itemData, setItemData] = useState({
     name: '',
     username: '',
@@ -24,11 +19,11 @@ const SingleItemPage = props => {
 
   useEffect(() => {
     axios
-      .get(`https://curi0.herokuapp.com/collectibles/${props.match.params.id}`)
+      .get(`https://curi0.herokuapp.com/collectibles/${match.params.id}`)
       .then(res => {
         setItemData(res.data);
       });
-  }, [props.match.params.id, setItemData]);
+  }, [match.params.id, setItemData]);
 
   const handleLike = e => {
     e.preventDefault();
@@ -112,6 +107,14 @@ const SingleItemPage = props => {
       </section>
     </main>
   );
+};
+
+SingleItemPage.propTypes = {
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      id: PropTypes.string,
+    }),
+  }).isRequired,
 };
 
 export default SingleItemPage;
