@@ -3,7 +3,7 @@ import axios from 'axios';
 
 const Login = props => {
   const [user, setUser] = useState({
-    email: '',
+    username: '',
     password: '',
   });
 
@@ -30,13 +30,13 @@ const Login = props => {
     <div className="login-container">
       <div className="login-form">
         <form className="login-form" onSubmit={handleSubmit}>
-          <div className="email">
+          <div className="username">
             <h2 className="center-text">Login</h2>
             <input
-              type="email"
-              value={user.email}
+              type="text"
+              value={user.username}
               onChange={handleChanges}
-              name="email"
+              name="username"
             />
           </div>
           <div className="password">
