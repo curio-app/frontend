@@ -1,6 +1,11 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 
-const UploadOne = () => {
+const UploadOne = (props) => {
+
+    useEffect(()=>{
+        props.setPageBars({...props.pageBars, isPageOne: true})
+    }, [])
+
     return (
         <div>
             <form>

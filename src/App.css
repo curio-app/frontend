@@ -36,3 +36,23 @@
     transform: rotate(360deg);
   }
 }
+
+
+.main-bar-div{
+  margin-top: 20px;
+  display: flex;
+  flex-direction: space-around;
+  justify-content: center;
+}
+
+.bar{
+  width: 75px;
+  height: 5px;
+  margin: 5px;
+  background-color: gray;
+  border-radius: 5px
+}
+
+.toggled {
+  background-color: teal;
+}
