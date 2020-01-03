@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
 
+import './style.css';
+
 const Login = ({ history }) => {
   const [user, setUser] = useState({
     username: '',
@@ -31,27 +33,29 @@ const Login = ({ history }) => {
   };
 
   return (
-    <main id="wrapper">
+    <main className="wrapper">
       <h1>Login</h1>
       <form onSubmit={handleSubmit}>
-        <label htmlFor="username" className="username">
+        <label htmlFor="username" className="input-container">
+          <i className="far fa-user icon" />
           <input
-            className="input"
+            className="input-field"
             type="text"
             value={user.username}
             onChange={handleChanges}
             name="username"
-            placeholder="&#xf007; Username"
+            placeholder="Username"
           />
         </label>
-        <label htmlFor="password" className="password">
+        <label htmlFor="password" className="input-container">
+          <i className="fas fa-lock icon" />
           <input
-            className="input"
+            className="input-field"
             type="password"
             value={user.password}
             onChange={handleChanges}
             name="password"
-            placeholder="&#xf023; Password"
+            placeholder="Password"
           />
         </label>
         <button className="registerButton" type="submit">
