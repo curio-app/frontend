@@ -19,7 +19,6 @@ const UploadPage = ({ match }) => {
     console.log(match)
     return (
         <div>
-
                 <Route path={`${match.path}/1`} render={props => <UploadPage1 {...props} pageBars={pageBars} setPageBars={setPageBars} /> } />
                 <Route path={`${match.path}/2`} render={props => <UploadPage2 {...props} pageBars={pageBars} setPageBars={setPageBars} /> } />
                 <Route path={`${match.path}/3`} render={props => <UploadPage3 {...props} pageBars={pageBars} setPageBars={setPageBars} /> } />
