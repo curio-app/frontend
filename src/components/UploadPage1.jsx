@@ -1,27 +1,30 @@
-import React, {useEffect} from 'react'
+import React, { useEffect } from 'react'
 
 const UploadOne = (props) => {
 
-    useEffect(()=>{
-        props.setPageBars({...props.pageBars, isPageOne: true})
+    useEffect(() => {
+        props.setPageBars({
+            ...props.pageBars,
+            isPageOne: true
+        })
     }, [])
 
     return (
         <div>
             <form>
 
-            <div className="upload">
-                <div className="upload-img"> Upload Image Div </div>
-                <div classNAme="upload-btn"><button>Upload Image</button></div>
-            </div>
-            
-                
-            <div className="form">
-                <input name="item_name" placeholder="Name of Collectible"/> 
-                <button style={{color: "red"}}>Continue</button>
-            </div>
-           </form>
-            
+                <div className="upload">
+                    <div className="upload-img"> Upload Image Div </div>
+                    <div classNAme="upload-btn"><button>Upload Image</button></div>
+                </div>
+
+
+                <div className="form">
+                    <input name="item_name" placeholder="Name of Collectible" />
+                    <button style={{ color: "red" }}>Continue</button>
+                </div>
+            </form>
+
         </div>
     )
 }

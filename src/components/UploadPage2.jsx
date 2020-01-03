@@ -1,10 +1,14 @@
-import React, {useEffect} from 'react';
+import React, { useEffect } from 'react';
 
 const UploadTwo = (props) => {
 
-  useEffect(()=>{
-    props.setPageBars({...props.pageBars, isPageTwo: true})
-}, [])
+  useEffect(() => {
+    props.setPageBars({
+      ...props.pageBars,
+      isPageOne: true,
+      isPageTwo: true
+    })
+  }, [])
 
   return (
     <div>

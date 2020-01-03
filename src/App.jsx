@@ -6,10 +6,6 @@ import Register from './components/auth/Register';
 
 import ProfilePage from './components/ProfilePage'
 import UploadPage from './components/UploadPage';
-import UploadPage1 from './components/UploadPage1';
-import UploadPage2 from './components/UploadPage2';
-import UploadPage3 from './components/UploadPage3';
-
 
 function App() {
   return (
