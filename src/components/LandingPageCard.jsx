@@ -4,12 +4,12 @@ import { PropTypes } from 'prop-types';
 
 const LandingPageCard = ({ card, history }) => {
   const handleProfileClick = () => {
-    history.push(`/profiles/${card.name.first}`);
+    history.push(`/profiles/${card.id}`);
   };
 
   const handleProfileKeyDown = e => {
     if (e.keyCode === 13) {
-      history.push(`/profiles/${card.name.first}`);
+      history.push(`/profiles/${card.id}`);
     }
   };
   return (
@@ -30,7 +30,7 @@ const LandingPageCard = ({ card, history }) => {
               onClick={handleProfileClick}
               onKeyPress={handleProfileKeyDown}
             >
-              {card.name.first}
+              {card.name?.first}
             </span>
           </p>
         </div>

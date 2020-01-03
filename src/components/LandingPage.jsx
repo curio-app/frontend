@@ -5,26 +5,48 @@ import DummyData from './DummyData.json';
 import LandingPageCard from './LandingPageCard';
 import '../Landing.css';
 
-const LandingPage = ({ history }) => {
-  const [setCardInfo] = useState([]);
+const LandingPage = () => {
+  const [cardInfo, setCardInfo] = useState(DummyData);
+  const [searchTerm, setSearchTerm] = useState('');
+  const [searchResults, setSearchResults] = useState([]);
 
   useEffect(() => {
     axios.get('https://url.notreal.lalala.com').then(res => {
+      console.log(res.data);
       return setCardInfo(res.data);
     });
-  }, [setCardInfo]);
+  }, []);
+
+  useEffect(() => {
+    setSearchResults(
+      cardInfo.filter(element => {
+        return element.title.toLowerCase().includes(searchTerm.toLowerCase());
+      })
+    );
+  }, [searchTerm]);
+
+  const handleChanges = e => {
+    setSearchTerm(e.target.value);
+  };
 
   return (
-    <main className="landing-page-wrapper">
-      {DummyData.map(card => {
-        return <LandingPageCard card={card} key={card.id} history={history} />;
-      })}
-    </main>
+    <>
+      <div className="search-bar">
+        <p>See what other collectors are sharing</p>
+        <input
+          value={searchTerm}
+          name="search"
+          onChange={handleChanges}
+          type="text"
+        />
+      </div>
+      <div className="landing-page-wrapper">
+        {searchResults.map(card => {
+          return <LandingPageCard card={card} />;
+        })}
+      </div>
+    </>
   );
-};
-
-LandingPage.propTypes = {
-  history: PropTypes.shape({ location: PropTypes.string }).isRequired,
 };
 
 export default LandingPage;
