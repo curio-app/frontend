@@ -30,23 +30,19 @@ const Register = ({ history }) => {
   };
 
   const handleSubmit = e => {
-    const userSend = {
-      username: user.username,
-      password: user.password,
-      email: user.email
-    }
     e.preventDefault();
     if (user.password === user.checkPassword) {
       axios
-        .post('https://curi0.herokuapp.com/auth/register', userSend)
+        .post('https://curi0.herokuapp.com/auth/register', user)
         .then(response => {
           localStorage.setItem('token', response.data.token);
           localStorage.setItem('user', JSON.stringify(response.data));
-          history.push(`/profile/${user.username}`);
+          history.push('/upload-page/1');
           document.location.reload();
         })
         .catch(err => console.log(err.response));
       setUser({
+        ...user,
         username: '',
         email: '',
         password: '',
