@@ -13,8 +13,8 @@ const SingleItemPage = ({ match }) => {
     story: '',
     description: '',
     likes: [],
-    tags: [],
   });
+  const [tags, setTags] = useState([]);
   const [liked, setLiked] = useState(false);
 
   useEffect(() => {
@@ -24,6 +24,15 @@ const SingleItemPage = ({ match }) => {
         setItemData(res.data);
       });
   }, [match.params.id, setItemData]);
+
+  useEffect(() => {
+    axios
+      .get(`https://curi0.herokuapp.com/tags/${match.params.id}`)
+      .then(response => {
+        setTags(response.data);
+      })
+      .catch(err => console.log(err));
+  }, [itemData, match.params.id]);
 
   const handleLike = e => {
     e.preventDefault();
@@ -98,10 +107,11 @@ const SingleItemPage = ({ match }) => {
         </section>
         <section className="tags">
           <h2>Tags</h2>
-          {itemData.tags.length === 0 ? (
+          {console.log(`${match.params.id}`)}
+          {tags.length === 0 ? (
             <p className="tag notag">N/A</p>
           ) : (
-            itemData.tags.map(tag => <p className="tag withtag">{tag.name}</p>)
+            tags.map((tag, index) => <p key={index} className="tag withtag">{tag.name}</p>)
           )}
         </section>
       </section>
