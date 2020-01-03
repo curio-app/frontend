@@ -26,7 +26,7 @@ const SingleItemPage = (props) => {
       <div className="single-item-wrapper">
         <section className="single-item-header">
           <div className="single-item-img">
-            <img alt="the product" src="https://via.placeholder.com/150" />
+            <img alt="the product" src={itemData.imageUrl} />
           </div>
           <div className="single-item-content">
             <h2>{itemData.name}</h2>
