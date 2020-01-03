@@ -8,7 +8,7 @@ import '../Landing.css';
 const LandingPage = ({ history }) => {
   const [cardInfo, setCardInfo] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
-  const [searchResults, setSearchResults] = useState([]);
+  const [searchResults, setSearchResults] = useState(cardInfo);
 
   useEffect(() => {
     axios.get('https://curi0.herokuapp.com/collectibles').then(res => {
@@ -20,10 +20,10 @@ const LandingPage = ({ history }) => {
   useEffect(() => {
     setSearchResults(
       cardInfo.filter(element => {
-        return element.title.toLowerCase().includes(searchTerm.toLowerCase());
+        return element.name.toLowerCase().includes(searchTerm.toLowerCase());
       })
     );
-  }, [searchTerm]);
+  }, [searchTerm, cardInfo]);
 
   const handleChanges = e => {
     setSearchTerm(e.target.value);
@@ -41,7 +41,7 @@ const LandingPage = ({ history }) => {
         />
       </div>
       <main className="landing-page-wrapper">
-        {cardInfo.map(card => {
+        {searchResults.map(card => {
           return (
             <LandingPageCard card={card} key={card.id} history={history} />
           );
