@@ -1,26 +1,33 @@
 import React from 'react';
-import '../ProfilePage.css';
+import PropTypes from 'prop-types';
+import { useHistory } from 'react-router-dom';
 
-const ProfilePageCard = (props) => {
-  console.log(props.data)
-
+const ProfilePageCard = ({ data }) => {
+  const history = useHistory();
   return (
-    <div className="user-collectable-card">
-      <div className="profile-page-img-wrapper">
-        <img src={props.data.img_url} alt="collectible" />
-      </div>
-      <h3>{props.data.item_name}</h3>
-      <p>
-        Liked <span>{props.data.likes}</span> times
-      </p>
+    <section className="user-collectable-card">
+      <img src={data.imageUrl} alt="collectible" />
+      <h3>{data.name}</h3>
       <button
+        type="button"
         className="edit-button"
         onClick={e => {
           e.preventDefault();
-          props.history.push(`/edit/${props.match.params.id}`)
-        }}>Edit</button>
-    </div>
+          history.push(`/edit/${data.id}`);
+        }}
+      >
+        Edit
+      </button>
+    </section>
   );
+};
+
+ProfilePageCard.propTypes = {
+  data: PropTypes.shape({
+    imageUrl: PropTypes.string,
+    name: PropTypes.string,
+    id: PropTypes.number,
+  }).isRequired,
 };
 
 export default ProfilePageCard;

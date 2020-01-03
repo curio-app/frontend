@@ -22,7 +22,7 @@ function App() {
           <Route exact path="/" component={LandingPage} />
           <Route exact path="/register" component={Register} />
           <Route path="/login" component={Login} />
-          <Route path="/profile" component={ProfilePage} />
+          <Route path="/profile/:username" component={ProfilePage} />
           <Route path="/upload-page" component={Upload} />
           <Route path="/edit" component={EditItemPage} />
           <Route path="/collectibles/:id" component={SingleItemPage} />

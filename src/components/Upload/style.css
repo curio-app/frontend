@@ -7,14 +7,14 @@
   margin: 0 auto;
 }
 
-.upload-page-1 form .upload {
+.upload-page-1 > form > .upload {
   cursor: pointer;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.upload-page-1 form .upload {
+.upload-page-1 > form > .upload {
   cursor: pointer;
   position: relative;
   background: #6aa79c;
@@ -23,17 +23,17 @@
   font-weight: bold;
   padding: 10px 15px;
   margin: 15px 0;
-  height: 20px;
+  height: 45px;
   border-radius: 10px;
   transition: all 300ms ease;
 }
 
-.upload-page-1 form .upload:hover {
+.upload-page-1 > form > .upload:hover {
   color: #6aa79c;
   background: white;
 }
 
-.upload-page-1 form .upload input {
+.upload-page-1 > form > .upload > input {
   cursor: pointer;
   position: absolute;
   z-index: 2;

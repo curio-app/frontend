@@ -1,37 +1,74 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
+import { useHistory } from 'react-router-dom';
+
+import axiosWithAuth from './auth/axiosWithAuth';
 import ProfilePageCard from './ProfilePageCard';
-import { dummydata } from './dummydata.jsx';
+
 import '../ProfilePage.css';
 
-const ProfilePage = props => {
-  console.log(dummydata);
+const ProfilePage = ({ match }) => {
+  const [profile, setProfile] = useState({
+    imageUrl: '',
+    username: match.params.username,
+    id: 0,
+    folders: [],
+  });
 
-  console.log(dummydata);
+  useEffect(() => {
+    const fetchData = async () => {
+      const { data } = await axiosWithAuth().get(
+        `/profiles/${match.params.username}`
+      );
+      setProfile(data);
+    };
+    fetchData();
+  }, [match.params.username, setProfile]);
 
+  const history = useHistory();
   return (
     <div>
-      <div className="overall-user-wrapper">
-        <div className="user-img-wrapper">
-          <img
-            src="https://photos.puppyspot.com/7/listing/626767/photo/5284820_small.jpg"
-            alt="hello"
-          />
-        </div>
-        <div className="user-info-wrapper">
-          <h3>UsernamePlaceholder</h3>
-          <p>
-            Total Collectibles: <span>50</span>
-          </p>
-          <button className="add-collect-button">Add a new collectible</button>
-        </div>
-      </div>
-      <div className="user-collectable-card-wrapper">
-        {dummydata.map(each => (
-          <ProfilePageCard key={each.id} data={each} />
+      <section className="overall-user-wrapper">
+        <img src={profile.imageUrl} alt="" />
+        <section className="user-info-wrapper">
+          <h3>{profile.username}</h3>
+          <p>Total Collectibles: 50</p>
+          <button
+            type="button"
+            className="add-collect-button"
+            onClick={e => {
+              e.preventDefault();
+              history.push('/upload-page/1');
+            }}
+          >
+            Add a new collectible
+          </button>
+        </section>
+      </section>
+      <section className="user-collectable-card-wrapper">
+        {profile.folders.map(folder => (
+          <section key={folder.folderId}>
+            <h3>{folder.folder}</h3>
+            <div>
+              {folder.collectibles.map(collectible => {
+                return (
+                  <ProfilePageCard key={collectible.id} data={collectible} />
+                );
+              })}
+            </div>
+          </section>
         ))}
-      </div>
+      </section>
     </div>
   );
+};
+
+ProfilePage.propTypes = {
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      username: PropTypes.string,
+    }),
+  }).isRequired,
 };
 
 export default ProfilePage;
