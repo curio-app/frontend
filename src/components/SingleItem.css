@@ -85,6 +85,7 @@
 
 .withtag {
   background-color: teal;
+  display: inline-block;
 }
 
 .withtag:hover {
@@ -94,6 +95,7 @@
 
 .notag {
   background-color: gray;
+  display: inline-block;
 }
 
 .story,
