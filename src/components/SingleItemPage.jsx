@@ -69,13 +69,13 @@ const SingleItemPage = (props) => {
             }
             
             
-            <h3>Looking to purchase?</h3>
+            {/* <h3>Looking to purchase?</h3>
             <div className="purchase-icons">
               <i class="fab fa-amazon"></i>
               <i class="fab fa-ebay"></i>
               <i class="fab fa-etsy"></i>
               <i class="far fa-envelope"></i>
-            </div>
+            </div> */}
           </div>
         </section>
 
