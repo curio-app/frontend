@@ -2,8 +2,6 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 
-import axiosWithAuth from './auth/axiosWithAuth';
-
 import './SingleItem.css';
 
 const SingleItemPage = props => {
@@ -73,7 +71,7 @@ const SingleItemPage = props => {
           </p>
           <p>
             Liked&nbsp;
-            {itemData.likes.length}
+            <strong>{itemData.likes.length}</strong>
             &nbsp;times
           </p>
           {!liked ? (
