@@ -24,32 +24,38 @@ const Login = props => {
         props.history.push('/');
       })
       .catch(err => console.log(err.response));
+    setUser({
+      username: '',
+      password: ''
+    });
   };
 
   return (
-    <div className="login-container">
-      <div className="login-form">
-        <form className="login-form" onSubmit={handleSubmit}>
-          <div className="username">
-            <h2 className="center-text">Login</h2>
-            <input
-              type="text"
-              value={user.username}
-              onChange={handleChanges}
-              name="username"
-            />
-          </div>
-          <div className="password">
-            <input
-              type="password"
-              value={user.password}
-              onChange={handleChanges}
-              name="password"
-            />
-          </div>
-          <button type="submit">Login</button>
-        </form>
-      </div>
+    <div id="wrapper">
+      <form onSubmit={handleSubmit}>
+        <div className="username">
+          <h1>Login</h1>
+          <input
+            className="input"
+            type="text"
+            value={user.username}
+            onChange={handleChanges}
+            name="username"
+            placeholder="&#xf007; Username"
+          />
+        </div>
+        <div className="password">
+          <input
+            className="input"
+            type="password"
+            value={user.password}
+            onChange={handleChanges}
+            name="password"
+            placeholder="&#xf023; Password"
+          />
+        </div>
+        <button className="registerButton" type="submit">Login</button>
+      </form>
     </div>
   );
 };

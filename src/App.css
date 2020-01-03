@@ -62,3 +62,45 @@
 .search-bar input {
   width: 40%;
 }
+
+#wrapper {
+  text-align: center;
+  color: #eb6a79;
+  font-family: Raleway;
+  font-size: 30px;
+}
+
+.input {
+  font-family: FontAwesome;
+  margin: auto;
+  margin-top: 10px;
+  display: flex;
+  background-color: white;
+  color: #eb6a79;
+  border: 2px solid #eb6a79;
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 25px;
+}
+
+::placeholder {
+  color: #eb6a79;
+}
+
+.registerButton {
+  font-family: Raleway;
+  margin: auto;
+  margin-top: 30px;
+  background: #eb6a79;
+  color: white;
+  border: 3px solid #eb6a79;
+  box-sizing: border-box;
+  border-radius: 10px;
+  font-size: 25px;
+  padding: 10px 20px;
+}
+
+.registerForm {
+  width: 100%;
+  margin-bottom: 10px;
+}
