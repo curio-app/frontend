@@ -41,7 +41,7 @@ const LandingPage = ({ history }) => {
         />
       </div>
       <main className="landing-page-wrapper">
-        {cardInfo.map(card => {
+        {searchResults.map(card => {
           return (
             <LandingPageCard card={card} key={card.id} history={history} />
           );
