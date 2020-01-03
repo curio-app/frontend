@@ -13,7 +13,12 @@ const ProfilePageCard = (props) => {
       <p>
         Liked <span>{props.data.likes}</span> times
       </p>
-      <button className="edit-button">Edit</button>
+      <button
+        className="edit-button"
+        onClick={e => {
+          e.preventDefault();
+          props.history.push(`/edit/${props.match.params.id}`)
+        }}>Edit</button>
     </div>
   );
 };

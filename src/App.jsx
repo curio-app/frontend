@@ -6,6 +6,7 @@ import Register from './components/auth/Register';
 
 import ProfilePage from './components/ProfilePage'
 import UploadPage from './components/UploadPage';
+import EditItemPage from './components/EditItemPage';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <Route path="/login" component={Login} />
       <Route path='/profile' component={ProfilePage} />
       <Route path='/upload-page' component={UploadPage} />
+      <Route path='/edit' component={EditItemPage} />
     </div>
 
   );
