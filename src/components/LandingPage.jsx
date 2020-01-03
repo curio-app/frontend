@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
-import DummyData from './DummyData.json';
+
 import LandingPageCard from './LandingPageCard';
 import '../Landing.css';
 
 const LandingPage = ({ history }) => {
-  const [cardInfo, setCardInfo] = useState(DummyData);
+  const [cardInfo, setCardInfo] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [searchResults, setSearchResults] = useState([]);
 
   useEffect(() => {
-    axios.get('https://url.notreal.lalala.com').then(res => {
+    axios.get('https://curi0.herokuapp.com/collectibles').then(res => {
       console.log(res.data);
       return setCardInfo(res.data);
     });
@@ -41,7 +41,7 @@ const LandingPage = ({ history }) => {
         />
       </div>
       <main className="landing-page-wrapper">
-        {searchResults.map(card => {
+        {cardInfo.map(card => {
           return (
             <LandingPageCard card={card} key={card.id} history={history} />
           );
