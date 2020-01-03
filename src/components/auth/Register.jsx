@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-const token = 'response.data.token';
-
 const Register = props => {
   const [user, setUser] = useState({
     email: '',
@@ -15,10 +13,14 @@ const Register = props => {
     });
   };
   const handleSubmit = e => {
+    const userSend = {
+      username: user.username,
+      password: user.password
+    };
     e.preventDefault();
     if (user.password === user.checkPassword) {
       axios
-        .post('https://curi0.herokuapp.com/auth/register', user)
+        .post('https://curi0.herokuapp.com/auth/register', userSend)
         .then(response => {
           localStorage.setItem('token', response.data.token);
           props.history.push('/UserPage');
