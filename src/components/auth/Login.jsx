@@ -25,6 +25,7 @@ const Login = ({ history }) => {
         localStorage.setItem('token', response.data.token);
         localStorage.setItem('user', JSON.stringify(response.data));
         history.push('/');
+        document.location.reload();
       })
       .catch(err => console.log(err.response));
     setUser({

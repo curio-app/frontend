@@ -40,6 +40,7 @@ const Register = ({ history }) => {
           localStorage.setItem('token', response.data.token);
           localStorage.setItem('user', JSON.stringify(response.data));
           history.push('/upload-page/1');
+          document.location.reload();
         })
         .catch(err => console.log(err.response));
       setUser({
