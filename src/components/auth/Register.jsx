@@ -163,9 +163,19 @@ const Register = ({ history }) => {
             placeholder="Verify Password"
           />
         </label>
-        <button className="registerButton" type="submit">
+        <div className="login-buttons">
+          <button className="registerButton" type="submit">
           Register
-        </button>
+          </button>
+          <p>
+            {' '}
+        or
+            {' '}
+            <button type="submit" onClick={() => history.push('/register')} className="registerButton">Login</button>
+            {' '}
+        to your account.
+          </p>
+        </div>
       </form>
     </main>
   );
