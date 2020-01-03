@@ -1,11 +1,25 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './SingleItem.css';
 
 //singledummy data
-import { singledummy } from './dummydata.jsx';
 
-const SingleItemPage = () => {
-  const [itemData] = useState(singledummy);
+import axios from 'axios';
+
+const SingleItemPage = (props) => {
+  const [itemData, setItemData] = useState({
+    name: "",
+    username: "",
+    story: "",
+    description: "",
+    likes: [],
+    tags: [],
+  });
+  
+  useEffect(()=> {
+    axios.get(`https://curi0.herokuapp.com/collectibles/${props.match.params.id}`)
+    .then(res => setItemData(res.data))
+  }, [props.match.params.id])
+  console.log(itemData)
 
   return (
     <>
@@ -19,7 +33,7 @@ const SingleItemPage = () => {
             <p>
               Shared by{' '}
               <span className="text">
-                <strong>{itemData.email}</strong>
+                <strong>{itemData.username}</strong>
               </span>
             </p>
             <p>
@@ -38,7 +52,7 @@ const SingleItemPage = () => {
             <button className="button liked">
               Liked{' '}
               <span>
-                <i class="fas fa-heart"></i>
+                // <i class="fas fa-heart"></i>
               </span>
             </button>
             <h3>Looking to purchase?</h3>
