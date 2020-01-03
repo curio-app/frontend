@@ -1,0 +1,103 @@
+.single-item-wrapper{
+    max-width: 800px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.single-item-header{
+    display: flex;
+    margin: 30px;
+    flex-flow: row wrap;
+    align-items: center;
+}
+
+.single-item-img{
+    margin: 0 30px 0 30px;
+}
+
+.single-item-content{
+    text-align: left;
+    padding: 10px
+}
+
+.single-item-content h2{
+    font-size: 2rem;
+}
+
+.single-item-info{
+    text-align: left;
+}
+
+.text{
+    color: salmon;
+}
+
+.button{
+    cursor: pointer;
+    border-radius: 5px;
+    width: 70px;
+    padding: 5px;
+    font-size: 0.7rem;
+    transition: 0.5s;
+}
+.like {
+    background-color: white;
+    color: salmon;
+    border: 2px solid salmon;
+    
+}
+
+.like:hover {
+    background-color: salmon;
+    color: white;
+}
+
+.liked {
+    background-color: salmon;
+    color: white;
+    border: 2px solid white;
+}
+
+.liked:hover {
+    background-color: white;
+    color: salmon;
+}
+
+.purchase-icons i{
+    cursor: pointer;
+    margin: 0 15px 0 15px;
+}
+
+.purchase-icons i:hover{
+    color: salmon;
+    transition: 0.3s;
+}
+
+.tag{
+    cursor: pointer;
+    color: white;
+    border-radius: 5px;
+    padding: 5px 10px 5px 10px;
+    margin: 10px;
+}
+
+.withtag{
+    background-color: teal;
+}
+
+.withtag:hover{
+    background-color: lightseagreen;
+    transition: 0.3s
+}
+
+.notag{
+    background-color: gray;
+}
+
+.story,.description, .tags{
+    margin: 30px;
+    max-width: 100%;
+}
