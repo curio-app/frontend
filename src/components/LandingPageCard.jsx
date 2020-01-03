@@ -30,7 +30,7 @@ const LandingPageCard = ({ card, history }) => {
               onClick={handleProfileClick}
               onKeyPress={handleProfileKeyDown}
             >
-              {card.name?.first}
+              {card.name.first}
             </span>
           </p>
         </div>

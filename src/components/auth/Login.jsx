@@ -31,10 +31,10 @@ const Login = ({ history }) => {
   };
 
   return (
-    <div id="wrapper">
+    <main id="wrapper">
+      <h1>Login</h1>
       <form onSubmit={handleSubmit}>
-        <div className="username">
-          <h1>Login</h1>
+        <label htmlFor="username" className="username">
           <input
             className="input"
             type="text"
@@ -43,8 +43,8 @@ const Login = ({ history }) => {
             name="username"
             placeholder="&#xf007; Username"
           />
-        </div>
-        <div className="password">
+        </label>
+        <label htmlFor="password" className="password">
           <input
             className="input"
             type="password"
@@ -53,12 +53,12 @@ const Login = ({ history }) => {
             name="password"
             placeholder="&#xf023; Password"
           />
-        </div>
+        </label>
         <button className="registerButton" type="submit">
           Login
         </button>
       </form>
-    </div>
+    </main>
   );
 };
 

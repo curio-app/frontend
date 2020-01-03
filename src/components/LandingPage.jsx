@@ -5,7 +5,7 @@ import DummyData from './DummyData.json';
 import LandingPageCard from './LandingPageCard';
 import '../Landing.css';
 
-const LandingPage = () => {
+const LandingPage = ({ history }) => {
   const [cardInfo, setCardInfo] = useState(DummyData);
   const [searchTerm, setSearchTerm] = useState('');
   const [searchResults, setSearchResults] = useState([]);
@@ -31,7 +31,7 @@ const LandingPage = () => {
 
   return (
     <>
-      <div className="search-bar">
+      <div className="search-bar" role="heading">
         <p>See what other collectors are sharing</p>
         <input
           value={searchTerm}
@@ -40,13 +40,21 @@ const LandingPage = () => {
           type="text"
         />
       </div>
-      <div className="landing-page-wrapper">
+      <main className="landing-page-wrapper">
         {searchResults.map(card => {
-          return <LandingPageCard card={card} />;
+          return (
+            <LandingPageCard card={card} key={card.id} history={history} />
+          );
         })}
-      </div>
+      </main>
     </>
   );
+};
+
+LandingPage.propTypes = {
+  history: PropTypes.shape({
+    push: PropTypes.func,
+  }).isRequired,
 };
 
 export default LandingPage;

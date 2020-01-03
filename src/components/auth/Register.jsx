@@ -16,11 +16,6 @@ const Register = ({ history }) => {
     });
   };
   const handleSubmit = e => {
-    const userSend = {
-      username: user.username,
-      email: user.email,
-      password: user.password,
-    };
     e.preventDefault();
     if (user.password === user.checkPassword) {
       axiosWithAuth()
@@ -39,7 +34,7 @@ const Register = ({ history }) => {
     }
   };
   return (
-    <div id="wrapper">
+    <main id="wrapper">
       <h1>Register Here!</h1>
       {/* <i>
         <i className="fas fa-user-plus" />
@@ -85,7 +80,7 @@ const Register = ({ history }) => {
           Register
         </button>
       </form>
-    </div>
+    </main>
   );
 };
 
