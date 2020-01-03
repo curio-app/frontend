@@ -49,7 +49,7 @@ const ProfilePage = ({ match }) => {
         {profile.folders.map(folder => (
           <section key={folder.folderId}>
             <h3>{folder.folder}</h3>
-            <div>
+            <div className="user-collect-wrapper">
               {folder.collectibles.map(collectible => {
                 return (
                   <ProfilePageCard key={collectible.id} data={collectible} />

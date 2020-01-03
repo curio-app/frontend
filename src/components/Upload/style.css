@@ -245,12 +245,6 @@
   opacity: 1;
 }
 
-.upload-page-3 form .tag:hover ~ .tag:after {
-  content: 'haha';
-  color: white;
-  background: #6aa79c;
-}
-
 .upload-page-3 > form > button[type='submit'] {
   cursor: pointer;
   color: white;

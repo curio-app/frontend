@@ -7,17 +7,9 @@ const ProfilePageCard = ({ data }) => {
   return (
     <section className="user-collectable-card">
       <img src={data.imageUrl} alt="collectible" />
-      <h3>{data.name}</h3>
-      <button
-        type="button"
-        className="edit-button"
-        onClick={e => {
-          e.preventDefault();
-          history.push(`/edit/${data.id}`);
-        }}
-      >
-        Edit
-      </button>
+      <div className="user-collectable-card-text">
+        <h3>{data.name}</h3>
+      </div>
     </section>
   );
 };

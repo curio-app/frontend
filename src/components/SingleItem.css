@@ -1,103 +1,117 @@
-.single-item-wrapper{
-    max-width: 800px;
-    width: 100%;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
+.single-item-wrapper {
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
 
-.single-item-header{
-    display: flex;
-    margin: 30px;
-    flex-flow: row wrap;
-    align-items: center;
+.single-item-header {
+  display: flex;
+  margin: 30px;
+  align-items: flex-start;
+  justify-content: space-around;
 }
 
-.single-item-img{
-    margin: 0 30px 0 30px;
+.single-item-header > img {
+  max-width: 500px;
 }
 
-.single-item-content{
-    text-align: left;
-    padding: 10px
+.single-item-header > .single-item-content a {
+  transition: all 300ms ease;
+  font-weight: bold;
 }
 
-.single-item-content h2{
-    font-size: 2rem;
+.single-item-header > .single-item-content a:hover {
+  color: #000;
 }
 
-.single-item-info{
-    text-align: left;
+.single-item-content {
+  text-align: left;
+  padding: 10px;
 }
 
-.text{
-    color: salmon;
+.single-item-content h2 {
+  font-size: 2rem;
 }
 
-.button{
-    cursor: pointer;
-    border-radius: 5px;
-    width: 70px;
-    padding: 5px;
-    font-size: 0.7rem;
-    transition: 0.5s;
+.single-item-info {
+  text-align: left;
+  width: 100%;
+}
+
+.single-item-content > p {
+  margin: 5px 0;
+}
+
+.button {
+  cursor: pointer;
+  border-radius: 5px;
+  width: 70px;
+  padding: 5px;
+  font-size: 0.9rem;
+  transition: 0.5s;
+  border: 2px solid #eb6a79;
+  margin: 10px 0;
 }
 .like {
-    background-color: white;
-    color: salmon;
-    border: 2px solid salmon;
-    
+  background-color: white;
+  color: #eb6a79;
 }
 
 .like:hover {
-    background-color: salmon;
-    color: white;
+  background-color: #eb6a79;
+  color: white;
 }
 
 .liked {
-    background-color: salmon;
-    color: white;
-    border: 2px solid white;
+  background-color: #eb6a79;
+  color: white;
+  border: 2px solid white;
 }
 
 .liked:hover {
-    background-color: white;
-    color: salmon;
+  background-color: white;
+  color: #eb6a79;
 }
 
-.purchase-icons i{
-    cursor: pointer;
-    margin: 0 15px 0 15px;
+.purchase-icons i {
+  cursor: pointer;
+  margin: 0 15px 0 15px;
 }
 
-.purchase-icons i:hover{
-    color: salmon;
-    transition: 0.3s;
+.purchase-icons i:hover {
+  color: #eb6a79;
+  transition: 0.3s;
 }
 
-.tag{
-    cursor: pointer;
-    color: white;
-    border-radius: 5px;
-    padding: 5px 10px 5px 10px;
-    margin: 10px;
+.tag {
+  cursor: pointer;
+  color: white;
+  border-radius: 5px;
+  padding: 5px 10px 5px 10px;
+  margin: 10px;
 }
 
-.withtag{
-    background-color: teal;
+.withtag {
+  background-color: teal;
+  display: inline-block;
 }
 
-.withtag:hover{
-    background-color: lightseagreen;
-    transition: 0.3s
+.withtag:hover {
+  background-color: lightseagreen;
+  transition: 0.3s;
 }
 
-.notag{
-    background-color: gray;
+.notag {
+  background-color: gray;
+  display: inline-block;
 }
 
-.story,.description, .tags{
-    margin: 30px;
-    max-width: 100%;
+.story,
+.description,
+.tags {
+  margin: 30px;
+  max-width: 100%;
 }
