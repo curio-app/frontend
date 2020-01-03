@@ -76,7 +76,7 @@ const SingleItemPage = ({ match }) => {
             </button>
           )}
           {/* <h3>Looking to purchase?</h3>
-          <div className="purchase-icons">
+          <div className="purchase-icons" role="presentation">
             <i className="fab fa-amazon" />
             <i className="fab fa-ebay" />
             <i className="fab fa-etsy" />
