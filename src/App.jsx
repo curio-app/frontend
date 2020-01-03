@@ -12,6 +12,7 @@ import Register from './components/auth/Register';
 import Footer from './components/Footer';
 import Upload from './components/Upload';
 import EditItemPage from './components/EditItemPage';
+import About from './components/About';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
           <Route path="/upload-page" component={Upload} />
           <Route path="/edit" component={EditItemPage} />
           <Route path="/collectibles/:id" component={SingleItemPage} />
+          <Route path="/about" component={About} />
         </Switch>
       </main>
       <Footer />

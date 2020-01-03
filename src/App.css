@@ -168,3 +168,12 @@ div.App > main.content {
 .toggled {
   background-color: teal;
 }
+
+.about-image {
+  width: 99px;
+  height: 99px;
+}
+
+.about-icons {
+  display: flex;
+}
