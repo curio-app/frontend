@@ -16,5 +16,14 @@
     "sourceType": "module"
   },
   "plugins": ["react"],
-  "rules": {}
+  "rules": {
+    "linebreak-style": "off",
+    "no-console": "off",
+    "react/jsx-props-no-spreading": "off",
+    "arrow-parens": "off",
+    "arrow-body-style": "off",
+    "comma-dangle": "off",
+    "operator-linebreak": "off",
+    "object-curly-newline": "off"
+  }
 }

@@ -1,0 +1,38 @@
+div.App > footer {
+  flex-shrink: 0;
+  background: #7c7c7c;
+  height: 100px;
+  margin-top: 20px;
+}
+
+div.App footer footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 95%;
+  height: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+footer .left .social {
+  display: flex;
+  justify-content: space-between;
+}
+
+footer .left h2 {
+  font-family: baloo;
+  color: white;
+  font-size: 2.5rem;
+  margin: 0;
+}
+
+footer .right nav {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+footer .right nav a {
+  margin-bottom: 5px;
+}
