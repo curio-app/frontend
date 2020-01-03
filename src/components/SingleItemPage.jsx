@@ -7,9 +7,16 @@ import axiosWithAuth from './auth/axiosWithAuth';
 import './SingleItem.css';
 
 const SingleItemPage = props => {
+  const [likeIt, setLikeIt] = useState(false);
+
+  const likeToggle = e => {
+    setLikeIt(!likeIt);
+  };
+
   const [itemData, setItemData] = useState({
     name: '',
     username: '',
+    imageUrl: '',
     story: '',
     description: '',
     likes: [],
