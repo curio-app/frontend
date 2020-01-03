@@ -10,6 +10,14 @@ import Paginations from './Paginations';
 
 const UploadPage = ({ match }) => {
 
+    const [newCollectable, setCollectable] = useState({
+        name: '',
+        story: '',
+        description: '',
+        sellable: false,
+        tags: []
+    })
+
     const [pageBars, setPageBars] = useState({
         isPageOne: false,
         isPageTwo: false,
@@ -19,10 +27,33 @@ const UploadPage = ({ match }) => {
     console.log(match)
     return (
         <div>
-                <Route path={`${match.path}/1`} render={props => <UploadPage1 {...props} pageBars={pageBars} setPageBars={setPageBars} /> } />
-                <Route path={`${match.path}/2`} render={props => <UploadPage2 {...props} pageBars={pageBars} setPageBars={setPageBars} /> } />
-                <Route path={`${match.path}/3`} render={props => <UploadPage3 {...props} pageBars={pageBars} setPageBars={setPageBars} /> } />
-
+                <Route 
+                    path={`${match.path}/1`} render={props => 
+                        <UploadPage1 
+                            {...props} 
+                            pageBars={pageBars} 
+                            setPageBars={setPageBars} 
+                            newCollectable={newCollectable} 
+                            setCollectable={setCollectable}/> } 
+                        />
+                <Route 
+                    path={`${match.path}/2`} render={props => 
+                        <UploadPage2 
+                        {...props} 
+                        pageBars={pageBars} 
+                        setPageBars={setPageBars} 
+                        newCollectable={newCollectable} 
+                        setCollectable={setCollectable}/> } 
+                    />
+                <Route 
+                    path={`${match.path}/3`} render={props => 
+                        <UploadPage3 
+                            {...props} 
+                            pageBars={pageBars} 
+                            setPageBars={setPageBars} 
+                            newCollectable={newCollectable} 
+                            setCollectable={setCollectable}/> } 
+                        />
                 <Paginations page={pageBars}/>
 
         </div>

@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 
-const UploadTwo = (props) => {
+const UploadTwo = ({newCollectable, setCollectable, ...props}) => {
 
   useEffect(() => {
     props.setPageBars({
@@ -10,6 +10,20 @@ const UploadTwo = (props) => {
     })
   }, [])
 
+  const handleChange = e => {
+    console.log(newCollectable)
+    setCollectable({
+        ...newCollectable,
+        [e.target.name]: e.target.value
+    })
+}
+
+const handleSubmit = e => {
+    e.preventDefault();
+    props.history.push('/upload-page/3')
+}
+
+
   return (
     <div>
       <form>
@@ -17,12 +31,15 @@ const UploadTwo = (props) => {
         <input
           type="text"
           placeholder="What do you love about this collectable?"
+          name="story"
+          value={newCollectable.story}
+          onChange={handleChange}
         />
         <h4>Are you willing to sell this item?</h4>
         <p>Other Curio users may contact you to discuss a potential sale</p>
         <button>Yes</button>
         <button>No</button>
-        <button>Continue</button>
+        <button onClick={handleSubmit}>Continue</button>
       </form>
 
     </div>

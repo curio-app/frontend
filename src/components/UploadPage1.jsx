@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 
-const UploadOne = (props) => {
+const UploadOne = ({ newCollectable, setCollectable, ...props }) => {
 
     useEffect(() => {
         props.setPageBars({
@@ -8,6 +8,19 @@ const UploadOne = (props) => {
             isPageOne: true
         })
     }, [])
+
+    const handleChange = e => {
+        // console.log(newCollectable)
+        setCollectable({
+            ...newCollectable,
+            [e.target.name]: e.target.value
+        })
+    }
+
+    const handleSubmit = e => {
+        e.preventDefault();
+        props.history.push('/upload-page/2')
+    }
 
     return (
         <div>
@@ -20,8 +33,13 @@ const UploadOne = (props) => {
 
 
                 <div className="form">
-                    <input name="item_name" placeholder="Name of Collectible" />
-                    <button style={{ color: "red" }}>Continue</button>
+                    <input 
+                        name="name" 
+                        placeholder="Name of Collectible" 
+                        value={newCollectable.name}
+                        onChange={handleChange}
+                    />
+                    <button style={{ color: "red" }} onClick={handleSubmit}>Continue</button>
                 </div>
             </form>
 
