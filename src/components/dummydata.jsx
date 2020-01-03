@@ -80,3 +80,31 @@ export const dummydata = [
         "description": "It's a thing"
     }
 ]
+
+export const singledummy = {
+    "id": 48,
+    "name": "tempor culpa enim",
+    "createdAt": "2020-01-03T01:35:20.360Z",
+    "updatedAt": "2020-01-03T01:35:20.360Z",
+    "imageUrl": "https://via.placeholder.com/400",
+    "story": "lorem ipsum",
+    "description": "Occaecat velit aliquip anim adipisicing Lorem eu officia eu. In laborum eu minim. Proident labore anim id consequat nisi velit irure exercitation culpa nisi dolor ad. Dolore magna aliqua qui voluptate consequat do cupidatat eu labore sint eiusmod consequat esse dolor minim. Cillum cillum sit amet adipisicing aliqua veniam do irure quis est. Ipsum velit aute cupidatat commodo ullamco mollit ullamco labore.",
+    "sellable": false,
+    "folderId": 2,
+    "email": "mngmay@gmail.com",
+    "userId": 2,
+    "likes": [{
+        "id": 1,
+        "email": "keveightysev@gmail.com"
+    }, {
+        "id": 2,
+        "email": "mngmay@gmail.com"
+    }],
+    "tags": [{
+        "id": 1,
+        "name": "lorem"
+    }, {
+        "id": 2,
+        "name": "ipsum"
+    }]
+}

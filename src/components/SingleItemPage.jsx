@@ -1,41 +1,55 @@
-import React from 'react';
+import React, {useState} from 'react';
+import './SingleItem.css'
+
+//singledummy data
+import {singledummy} from './dummydata.jsx'
 
 const SingleItemPage = () => {
+
+    const [itemData] = useState(singledummy)
+
     return (
-        <div>
-            <section>
-                <img alt='the product' src='https://via.placeholder.com/150' />
-                <h2>SNES Crash Test Dummies</h2>
-                <p>Shared by <span>username</span></p>
-                <p>Liked <span>100</span> times</p>
-                <button>Like <span><i class="far fa-heart"></i></span></button>
-                <button>Liked <span><i class="fas fa-heart"></i></span></button>
-                <div>
-                    <h3>Looking to purchase?</h3>
-                    <p>
+        <>
+            <div className="single-item-wrapper">
+            <section className="single-item-header">
+                <div className="single-item-img">
+                    <img alt='the product' src='https://via.placeholder.com/150' />
+                </div>
+                <div className="single-item-content">
+                    <h2>{itemData.name}</h2>
+                    <p>Shared by <span className="text"><strong>{itemData.email}</strong></span></p>
+                    <p>Liked <span className="text"><strong>{itemData.likes.length}</strong></span> times</p>
+                    <button className="button like">Like <span ><i class="far fa-heart"></i></span></button>
+                    <button className="button liked">Liked <span><i class="fas fa-heart"></i></span></button>
+                     <h3>Looking to purchase?</h3>
+                    <div className="purchase-icons">
                         <i class="fab fa-amazon"></i>
                         <i class="fab fa-ebay"></i>
                         <i class="fab fa-etsy"></i>
                         <i class="far fa-envelope"></i>
-                    </p>
+                    </div>
                 </div>
-
-
             </section>
-            <section>
+
+            <div className="single-item-info">
+            <section className="story">
                 <h2>Collector's Story</h2>
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptas, optio, beatae cum tempore numquam perspiciatis inventore suscipit quos, officiis eos cupiditate a sint alias temporibus ducimus consectetur deserunt hic accusantium!</p>
+                <p>{ itemData.story ===null? 'N/A': `${itemData.story}`} </p>
             </section>
-            <section>
+            <section className="description">
                 <h2>Description</h2>
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptas, optio, beatae cum tempore numquam perspiciatis inventore suscipit quos, officiis eos cupiditate a sint alias temporibus ducimus consectetur deserunt hic accusantium!</p>
+                <p>{ itemData.description === null? 'N/A': `${itemData.description}`} </p>
             </section>
-            <section>
-                <h2>Tags</h2>
-                <p>tag1</p>
-                <p>tag2</p>
+            <section className="tags">
+                <h2>Tags</h2>{
+                    itemData.tags.length === 0 ? <span className="tag notag">N/A</span>:
+                    itemData.tags.map(tag => <span className="tag withtag">{tag.name}</span>)
+                }
+                
             </section>
-        </div>
+            </div>
+            </div>
+        </>
     )
 }
 
