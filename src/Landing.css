@@ -1,79 +1,98 @@
 /* latin-ext */
 @font-face {
-    font-family: 'Raleway';
-    font-style: normal;
-    font-weight: 400;
-    font-display: swap;
-    src: local('Raleway'), local('Raleway-Regular'), url(https://fonts.gstatic.com/s/raleway/v14/1Ptug8zYS_SKggPNyCMIT4ttDfCmxA.woff2) format('woff2');
-    unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
-  }
-  /* latin */
-  @font-face {
-    font-family: 'Raleway';
-    font-style: normal;
-    font-weight: 400;
-    font-display: swap;
-    src: local('Raleway'), local('Raleway-Regular'), url(https://fonts.gstatic.com/s/raleway/v14/1Ptug8zYS_SKggPNyC0IT4ttDfA.woff2) format('woff2');
-    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-  }
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Raleway'), local('Raleway-Regular'),
+    url(https://fonts.gstatic.com/s/raleway/v14/1Ptug8zYS_SKggPNyCMIT4ttDfCmxA.woff2)
+      format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB,
+    U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Raleway'), local('Raleway-Regular'),
+    url(https://fonts.gstatic.com/s/raleway/v14/1Ptug8zYS_SKggPNyC0IT4ttDfA.woff2)
+      format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
+    U+FEFF, U+FFFD;
+}
 
-  * {
-      font-family: Raleway;
-  }
+* {
+  font-family: Raleway;
+}
 
-  a {
-      text-decoration: none;
-      color: salmon;
-  }
+a {
+  text-decoration: none;
+  color: salmon;
+}
 
-  p {
-      margin: 3px;
-  }
+p {
+  margin: 3px;
+}
 
-  h2 {
-      font-size: 1.2rem;
-  }
+h2 {
+  font-size: 1.2rem;
+}
 
 .landing-page-card {
-    width: 195px;
-    height: 195px;
-    overflow: hidden;
-    transition: 0.5s;
-    position: relative;
+  width: 195px;
+  height: 195px;
+  overflow: hidden;
+  transition: 0.5s;
+  position: relative;
 }
 
 .landing-page-card-text {
-    opacity: 0;
-    position: absolute;
-    top: 0;
-    left: 0;
-    transition: 0.5s;
-    height: 195px;
-    width: 195px;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: 0.5s;
+  height: 195px;
+  width: 195px;
 }
 
 .landing-page-card-text:hover {
-    opacity: 0.8;
-    transition: 0.5s;
-    color: white;
-    background-color: black;
+  opacity: 0.8;
+  transition: 0.5s;
+  color: white;
+  background-color: black;
 }
 
-
 .landing-page-card img {
-    max-height: 100%;
-    height: auto;
-    display: block;
-    margin: 0 auto;
+  max-height: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
 }
 
 .landing-page-wrapper {
-    max-width: 800px;
-    width: 100%;
-    margin: 0 auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row;
-    flex-wrap: wrap;
+  max-width: 780px;
+  width: 95%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 0 auto;
+}
+
+.landing-page-wrapper > h2 {
+  text-align: left;
+  font-size: 1.3rem;
+}
+
+.landing-page-wrapper > div {
+  width: 100%;
+  /* margin: 0 auto; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
 }

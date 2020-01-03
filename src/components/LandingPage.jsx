@@ -11,7 +11,7 @@ const LandingPage = ({ history }) => {
   const [searchResults, setSearchResults] = useState(cardInfo);
 
   useEffect(() => {
-    axios.get('https://curi0.herokuapp.com/collectibles').then(res => {
+    axios.get('https://curi0.herokuapp.com/collectibles/latest').then(res => {
       console.log(res.data);
       return setCardInfo(res.data);
     });
@@ -32,20 +32,30 @@ const LandingPage = ({ history }) => {
   return (
     <>
       <div className="search-bar" role="heading">
-        <p>See what other collectors are sharing</p>
-        <input
-          value={searchTerm}
-          name="search"
-          onChange={handleChanges}
-          type="text"
-        />
+        <h2>See what other collectors are sharing</h2>
+        <label htmlFor="username" className="input-container">
+          <i className="fas fa-search icon" />
+          <input
+            className="input-field"
+            type="text"
+            value={searchTerm}
+            onChange={handleChanges}
+            name="search"
+            placeholder="Search for keywords"
+          />
+        </label>
       </div>
       <main className="landing-page-wrapper">
-        {searchResults.map(card => {
-          return (
-            <LandingPageCard card={card} key={card.id} history={history} />
-          );
-        })}
+        <h2 style={{ textAlign: 'left' }}>
+          Latest collectibles shared by other collectors
+        </h2>
+        <div>
+          {searchResults.map(card => {
+            return (
+              <LandingPageCard card={card} key={card.id} history={history} />
+            );
+          })}
+        </div>
       </main>
     </>
   );
