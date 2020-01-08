@@ -58,7 +58,6 @@ const SingleItemPage = ({ match }) => {
     e.preventDefault();
     const user = JSON.parse(localStorage.getItem('user'));
     if (!user) return;
-    console.log(match.params.id, user.id);
     const { data } = await axiosWithAuth().delete(
       `/likes/${match.params.id}/${user.id}`
     );
@@ -124,7 +123,6 @@ const SingleItemPage = ({ match }) => {
         </section>
         <section className="tags">
           <h2>Tags</h2>
-          {console.log(`${match.params.id}`)}
           {tags.length === 0 ? (
             <p className="tag notag">N/A</p>
           ) : (

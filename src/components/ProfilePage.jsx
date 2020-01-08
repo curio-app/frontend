@@ -32,7 +32,10 @@ const ProfilePage = ({ match }) => {
         <img src={profile.imageUrl} alt="" />
         <section className="user-info-wrapper">
           <h3>{profile.username}</h3>
-          <p>Total Collectibles: 50</p>
+          <p>
+            Total Collectibles:
+            {profile.folders[0]?.collectibles?.length}
+          </p>
           <button
             type="button"
             className="add-collect-button"
