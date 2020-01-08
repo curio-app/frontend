@@ -13,7 +13,6 @@ const ProfilePage = ({ match }) => {
     id: 0,
     folders: [],
   });
-  const [collLength, setCollLength] = useState(0);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -57,7 +56,7 @@ const ProfilePage = ({ match }) => {
         {profile.folders.map(folder => (
           <section key={folder.folderId}>
             <h3>{folder.folder}</h3>
-            <div className="user-collect-wrapper">
+            <div className="user-collect-wrapper" role="listitem">
               {folder.collectibles.map(collectible => {
                 return (
                   <ProfilePageCard key={collectible.id} data={collectible} />
