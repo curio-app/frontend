@@ -16,6 +16,8 @@ import Footer from './components/Footer';
 import Upload from './components/Upload';
 import EditItemPage from './components/SingleItem/EditItem';
 import About from './components/About';
+import AdminRoute from './components/auth/AdminRoute';
+import Admin from './components/Admin';
 
 function App() {
   const dispatch = useUserDispatch();
@@ -48,6 +50,7 @@ function App() {
             <Route path="/edit" component={EditItemPage} />
             <Route path="/collectibles/:id" component={SingleItemPage} />
             <Route path="/about" component={About} />
+            <AdminRoute path="/admin" component={Admin} />
           </Switch>
         </main>
         <Footer />
