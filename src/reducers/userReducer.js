@@ -4,7 +4,9 @@ export const initialUserState = {
   role: 'user',
   email: '',
   imageUrl: '',
-  isFetching: false,
+  isFetching: true,
+  loggedIn: false,
+  isLoggingIn: false,
 };
 
 export const userReducer = (state, action) => {
@@ -20,11 +22,29 @@ export const userReducer = (state, action) => {
         ...state,
         ...action.payload,
         isFetching: false,
+        loggedIn: true,
       };
     case 'FETCH_FAILURE':
       return {
         ...state,
         isFetching: false,
+      };
+    case 'LOGIN_START':
+      return {
+        ...state,
+        isLoggingIn: true,
+      };
+    case 'LOGIN_SUCCESS':
+      return {
+        ...state,
+        ...action.payload,
+        isLoggingIn: false,
+        loggedIn: true,
+      };
+    case 'LOGIN_FAILEURE':
+      return {
+        ...state,
+        isLoggingIn: false,
       };
     default:
       return state;

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 
+import { useUserState } from '../contexts/userContext';
 import axiosWithAuth from './auth/axiosWithAuth';
 
 import './SingleItem.css';
@@ -18,18 +19,18 @@ const SingleItemPage = ({ match }) => {
   });
   const [tags, setTags] = useState([]);
   const [liked, setLiked] = useState(false);
+  const user = useUserState();
 
   useEffect(() => {
     axios
       .get(`https://curi0.herokuapp.com/collectibles/${match.params.id}`)
       .then(res => {
         setItemData(res.data);
-        const user = JSON.parse(localStorage.getItem('user'));
-        if (!user) return;
+        if (user.id === 0) return;
         const findLike = res.data.likes.find(like => like.id === user.id);
         if (findLike) setLiked(true);
       });
-  }, [match.params.id, setItemData]);
+  }, [match.params.id, setItemData, user.id]);
 
   useEffect(() => {
     axios
@@ -42,7 +43,6 @@ const SingleItemPage = ({ match }) => {
 
   const handleLike = async e => {
     e.preventDefault();
-    const user = JSON.parse(localStorage.getItem('user'));
     if (!user) return;
     const { data } = await axiosWithAuth().post(`/likes/${match.params.id}`, {
       userId: user.id,
@@ -56,7 +56,6 @@ const SingleItemPage = ({ match }) => {
 
   const handleUnlike = async e => {
     e.preventDefault();
-    const user = JSON.parse(localStorage.getItem('user'));
     if (!user) return;
     const { data } = await axiosWithAuth().delete(
       `/likes/${match.params.id}/${user.id}`

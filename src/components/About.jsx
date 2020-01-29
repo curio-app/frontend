@@ -10,27 +10,83 @@ import michael from '../images/michael.png';
 import TeamMemberCard from './TeamMemberCard';
 import '../About.css';
 
-const imageNames = [allie, tim, michael, brittany, mashima, kevin, may, david];
-
-const imageStrings = ['Allie Robinson', 'Tim Griffith', 'Michael Searles', 'Brittany Isaacson', 'Mashima Button', 'Kevin Smith', 'May Ng', 'David Hennig'];
-const githubStrings = ['https://github.com/allie-rae', 'https://github.com/grifmang', 'https://github.com/msearles25', 'https://github.com/brittanymae01', 'https://github.com/zimashima', 'https://github.com/keveightysev', 'https://github.com/mngmay', 'https://github.com/davidhennig']
-const linkedInStrings = ['https://www.linkedin.com/in/allie-robinson-5b8b76a1/', 'https://www.linkedin.com/in/tim-griffith-730a041a/', 'https://www.linkedin.com/in/michael-searles-3b7460196/', 'https://www.linkedin.com/in/brittany-isaacson-1b1460196/', 'https://www.linkedin.com/in/mashimabutton/', 'https://linkedin.com/in/keveightysev', 'https://linkedin.com/in/mngmay', 'https://www.linkedin.com/in/david-hennig-83473350/']
+const people = [
+  {
+    id: 1,
+    name: 'Allie Robinson',
+    github: 'https://github.com/allie-rae',
+    linkedin: 'https://www.linkedin.com/in/allie-robinson-5b8b76a1/',
+    img: allie,
+  },
+  {
+    id: 2,
+    name: 'Tim Griffith',
+    github: 'https://github.com/grifmang',
+    linkedin: 'https://www.linkedin.com/in/tim-griffith-730a041a/',
+    img: tim,
+  },
+  {
+    id: 3,
+    name: 'Michael Searles',
+    github: 'https://github.com/msearles25',
+    linkedin: 'https://www.linkedin.com/in/michael-searles-3b7460196/',
+    img: michael,
+  },
+  {
+    id: 4,
+    name: 'Brittany Isaacson',
+    github: 'https://github.com/brittanymae01',
+    linkedin: 'https://www.linkedin.com/in/brittany-isaacson-1b1460196/',
+    img: brittany,
+  },
+  {
+    id: 5,
+    name: 'Mashima Button',
+    github: 'https://github.com/zimashima',
+    linkedin: 'https://www.linkedin.com/in/mashimabutton/',
+    img: mashima,
+  },
+  {
+    id: 6,
+    name: 'Kevin Smith',
+    github: 'https://github.com/keveightysev',
+    linkedin: 'https://linkedin.com/in/keveightysev',
+    img: kevin,
+  },
+  {
+    id: 7,
+    name: 'May Ng',
+    github: 'https://github.com/mngmay',
+    linkedin: 'https://linkedin.com/in/mngmay',
+    img: may,
+  },
+  {
+    id: 8,
+    name: 'David Hennig',
+    github: 'https://github.com/davidhennig',
+    linkedin: 'https://www.linkedin.com/in/david-hennig-83473350/',
+    img: david,
+  },
+];
 
 const About = () => {
   return (
-    <div className="overall-about-container">
+    <section className="overall-about-container">
       <h2 className="baloo">Meet the team!</h2>
-      <div className="about-card-container">
-        {imageNames.map((element, index) => {
-          return <TeamMemberCard
-            key={index}
-            name={imageStrings[index]}
-            github={githubStrings[index]}
-            linkedIn={linkedInStrings[index]}
-            image={element} />;
+      <section className="about-card-container">
+        {people.map(person => {
+          return (
+            <TeamMemberCard
+              key={person.id}
+              name={person.name}
+              github={person.github}
+              linkedIn={person.linkedin}
+              image={person.img}
+            />
+          );
         })}
-      </div>
-    </div>
+      </section>
+    </section>
   );
 };
 

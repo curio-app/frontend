@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
+
+import { useUserDispatch, useUserState } from '../../contexts/userContext';
 
 import './style.css';
 
@@ -17,15 +19,17 @@ const Login = ({ history }) => {
     });
   };
 
+  const dispatch = useUserDispatch();
+  const { loggedIn } = useUserState();
+
   const handleSubmit = e => {
     e.preventDefault();
+    dispatch({ type: 'LOGIN_START' });
     axios
       .post('https://curi0.herokuapp.com/auth/login', user)
       .then(response => {
         localStorage.setItem('token', response.data.token);
-        localStorage.setItem('user', JSON.stringify(response.data));
-        history.push('/');
-        document.location.reload();
+        dispatch({ type: 'LOGIN_SUCCESS', payload: response.data });
       })
       .catch(err => console.log(err.response));
     setUser({
@@ -33,6 +37,10 @@ const Login = ({ history }) => {
       password: '',
     });
   };
+
+  useEffect(() => {
+    if (loggedIn) history.push('/');
+  }, [loggedIn, history]);
 
   return (
     <main className="wrapper">
@@ -60,19 +68,22 @@ const Login = ({ history }) => {
             placeholder="Password"
           />
         </label>
-        <div className="login-buttons">
+        <section className="login-buttons">
           <button className="registerButton" type="submit">
-          Login
+            Login
           </button>
           <p>
-            {' '}
-        or
-            {' '}
-            <button type="submit" onClick={() => history.push('/register')} className="registerButton">Register</button>
-            {' '}
-        a new account.
+            &nbsp;or&nbsp;
+            <button
+              type="submit"
+              onClick={() => history.push('/register')}
+              className="registerButton"
+            >
+              Register
+            </button>
+            &nbsp; a new account.
           </p>
-        </div>
+        </section>
       </form>
     </main>
   );

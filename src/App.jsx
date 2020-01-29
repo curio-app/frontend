@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { Route, Switch } from 'react-router-dom';
 
 import axiosWithAuth from './components/auth/axiosWithAuth';
-import { useUserDispatch } from './contexts/userContext';
+import { useUserDispatch, useUserState } from './contexts/userContext';
 
 import './App.css';
 
@@ -19,6 +19,7 @@ import About from './components/About';
 
 function App() {
   const dispatch = useUserDispatch();
+  const user = useUserState();
   useEffect(() => {
     const fetchData = async () => {
       dispatch({ type: 'FETCH_START' });
@@ -31,25 +32,27 @@ function App() {
       }
     };
     fetchData();
-  }, []);
+  }, [dispatch]);
 
   return (
-    <div className="App" role="main">
-      <main className="content">
-        <Header />
-        <Switch>
-          <Route exact path="/" component={LandingPage} />
-          <Route exact path="/register" component={Register} />
-          <Route path="/login" component={Login} />
-          <Route path="/profile/:username" component={ProfilePage} />
-          <Route path="/upload-page" component={Upload} />
-          <Route path="/edit" component={EditItemPage} />
-          <Route path="/collectibles/:id" component={SingleItemPage} />
-          <Route path="/about" component={About} />
-        </Switch>
-      </main>
-      <Footer />
-    </div>
+    !user.isFetching && (
+      <div className="App" role="main">
+        <main className="content">
+          <Header />
+          <Switch>
+            <Route exact path="/" component={LandingPage} />
+            <Route exact path="/register" component={Register} />
+            <Route path="/login" component={Login} />
+            <Route path="/profile/:username" component={ProfilePage} />
+            <Route path="/upload-page" component={Upload} />
+            <Route path="/edit" component={EditItemPage} />
+            <Route path="/collectibles/:id" component={SingleItemPage} />
+            <Route path="/about" component={About} />
+          </Switch>
+        </main>
+        <Footer />
+      </div>
+    )
   );
 }
 

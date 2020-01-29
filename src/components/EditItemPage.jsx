@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-import { useParams } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 const EditItemPage = props => {
-  let { id } = useParams();
   const [editItem, setEditITem] = useState({
     name: '',
     story: '',
@@ -48,6 +47,7 @@ const EditItemPage = props => {
         />
         <p>Sellable?</p>
         <button
+          type="button"
           onClick={e => {
             e.preventDefault();
             setEditITem({ ...editItem, sellable: true });
@@ -56,6 +56,7 @@ const EditItemPage = props => {
           Yes
         </button>
         <button
+          type="button"
           onClick={e => {
             e.preventDefault();
             setEditITem({ ...editItem, sellable: false });
@@ -64,11 +65,17 @@ const EditItemPage = props => {
           No
         </button>
         <br />
-        <input type="text" value="current tags" />
-        <button>Finish</button>
+        <input type="text" value="current tags" aria-label="tags" />
+        <button type="button">Finish</button>
       </form>
     </div>
   );
+};
+
+EditItemPage.propTypes = {
+  history: PropTypes.shape({
+    push: PropTypes.func,
+  }).isRequired,
 };
 
 export default EditItemPage;

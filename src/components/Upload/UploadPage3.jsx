@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
+
+import { useUserState } from '../../contexts/userContext';
 import axiosWithAuth from '../auth/axiosWithAuth';
 
 const UploadThree = ({
@@ -12,6 +14,8 @@ const UploadThree = ({
   newCollectible,
   history,
 }) => {
+  const user = useUserState();
+
   useEffect(() => {
     setPageBars(prevState => ({ ...prevState, isPageThree: true }));
   }, [setPageBars]);
@@ -29,9 +33,8 @@ const UploadThree = ({
 
   const handleSubmit = async e => {
     e.preventDefault();
-    const { id: userId } = JSON.parse(localStorage.getItem('user'));
     const { data } = await axiosWithAuth().post(
-      `/collectibles/${userId}`,
+      `/collectibles/${user.id}`,
       newCollectible
     );
     history.push(`/collectibles/${data.id}`);
