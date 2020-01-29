@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { useHistory } from 'react-router-dom';
-import axiosWithAuth from './auth/axiosWithAuth';
-import ProfilePageCard from './ProfilePageCard';
+import axiosWithAuth from '../auth/axiosWithAuth';
+import ProfilePageCard from './Card';
 
-import '../ProfilePage.css';
+import './style.css';
 
 const ProfilePage = ({ match }) => {
   const [profile, setProfile] = useState({

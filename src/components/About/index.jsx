@@ -1,14 +1,14 @@
 import React from 'react';
-import allie from '../images/allie.png';
-import tim from '../images/tim.png';
-import brittany from '../images/brittany.png';
-import mashima from '../images/mashima.png';
-import kevin from '../images/kevin.png';
-import david from '../images/david.png';
-import may from '../images/may.png';
-import michael from '../images/michael.png';
-import TeamMemberCard from './TeamMemberCard';
-import '../About.css';
+import allie from '../../images/allie.png';
+import tim from '../../images/tim.png';
+import brittany from '../../images/brittany.png';
+import mashima from '../../images/mashima.png';
+import kevin from '../../images/kevin.png';
+import david from '../../images/david.png';
+import may from '../../images/may.png';
+import michael from '../../images/michael.png';
+import TeamMemberCard from './Card';
+import './style.css';
 
 const people = [
   {

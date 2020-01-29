@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 
-import { useUserState } from '../contexts/userContext';
-import axiosWithAuth from './auth/axiosWithAuth';
+import { useUserState } from '../../contexts/userContext';
+import axiosWithAuth from '../auth/axiosWithAuth';
 
-import './SingleItem.css';
+import './style.css';
 
 const SingleItemPage = ({ match }) => {
   const [itemData, setItemData] = useState({
@@ -125,8 +125,8 @@ const SingleItemPage = ({ match }) => {
           {tags.length === 0 ? (
             <p className="tag notag">N/A</p>
           ) : (
-            tags.map((tag, index) => (
-              <p key={index} className="tag withtag">
+            tags.map(tag => (
+              <p key={tag} className="tag withtag">
                 {tag.name}
               </p>
             ))

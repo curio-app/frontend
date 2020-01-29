@@ -7,14 +7,14 @@ import { useUserDispatch, useUserState } from './contexts/userContext';
 import './App.css';
 
 import Header from './components/Header';
-import SingleItemPage from './components/SingleItemPage';
+import SingleItemPage from './components/SingleItem';
 import ProfilePage from './components/ProfilePage';
 import LandingPage from './components/LandingPage';
 import Login from './components/auth/Login';
 import Register from './components/auth/Register';
 import Footer from './components/Footer';
 import Upload from './components/Upload';
-import EditItemPage from './components/EditItemPage';
+import EditItemPage from './components/SingleItem/EditItem';
 import About from './components/About';
 
 function App() {
