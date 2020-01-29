@@ -3,20 +3,22 @@ import PropTypes from 'prop-types';
 
 const TeamMemberCard = ({ name, github, linkedIn, image }) => {
   return (
-    <div id="about-card">
-      <div className="about-card-text">
+    <section className="about-card">
+      <section className="about-card-text">
         <h3>{name}</h3>
-        <div id="about-links-wrapper">
+        <nav className="about-links-wrapper">
           <a href={github}>
-            <i class="fab fa-github" id="about-icon"></i>
+            <p style={{ display: 'none' }}>GitHub</p>
+            <i className="fab fa-github about-icon" />
           </a>
           <a href={linkedIn}>
-            <i class="fab fa-linkedin" id="about-icon"></i>
+            <p style={{ display: 'none' }}>LinkedIn</p>
+            <i className="fab fa-linkedin about-icon" />
           </a>
-        </div>
-      </div>
+        </nav>
+      </section>
       <img className="about-image" src={image} alt="team member" />
-    </div>
+    </section>
   );
 };
 

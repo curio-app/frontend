@@ -7,7 +7,7 @@
   margin-bottom: 70px;
 }
 
-#about-card {
+.about-card {
   width: 195px;
   height: 195px;
   position: relative;
@@ -43,11 +43,11 @@
   transition: 0.5s;
 }
 
-#about-icon {
+.about-icon {
   font-size: 2rem;
 }
 
-#about-links-wrapper {
+.about-links-wrapper {
   width: 195px;
   display: flex;
   justify-content: space-evenly;
